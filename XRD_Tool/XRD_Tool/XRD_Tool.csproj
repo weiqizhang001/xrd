@@ -1,0 +1,548 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B8E06AB7-6433-4BA8-A68B-BE607C2DCBD9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XRD_Tool</RootNamespace>
+    <AssemblyName>XRD_Tool</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CurveFitting.cs" />
+    <Compile Include="DataResultChart.cs" />
+    <Compile Include="DataResultTable.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChildTexture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChildTexture.Designer.cs">
+      <DependentUpon>FormChildTexture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCurveFitting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCurveFitting.Designer.cs">
+      <DependentUpon>FormCurveFitting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDeviceInit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDeviceInit.Designer.cs">
+      <DependentUpon>FormDeviceInit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChildAccessPort.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChildAccessPort.Designer.cs">
+      <DependentUpon>FormChildAccessPort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChildDeviceCtrl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChildDeviceCtrl.Designer.cs">
+      <DependentUpon>FormChildDeviceCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChildDeviceParam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChildDeviceParam.Designer.cs">
+      <DependentUpon>FormChildDeviceParam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChildLogo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChildLogo.Designer.cs">
+      <DependentUpon>FormChildLogo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChildMeasure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChildMeasure.Designer.cs">
+      <DependentUpon>FormChildMeasure.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHighVoltageConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHighVoltageConfirm.Designer.cs">
+      <DependentUpon>FormHighVoltageConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShortcutAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShortcutAbout.Designer.cs">
+      <DependentUpon>FormShortcutAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShortcutAutoFocus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShortcutAutoFocus.Designer.cs">
+      <DependentUpon>FormShortcutAutoFocus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShortcutFiveAxis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShortcutFiveAxis.Designer.cs">
+      <DependentUpon>FormShortcutFiveAxis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShortcutHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShortcutHelp.Designer.cs">
+      <DependentUpon>FormShortcutHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShortcutHighVoltage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShortcutHighVoltage.Designer.cs">
+      <DependentUpon>FormShortcutHighVoltage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTCPClientTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTCPClientTest.Designer.cs">
+      <DependentUpon>FormTCPClientTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWarmUpConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWarmUpConfirm.Designer.cs">
+      <DependentUpon>FormWarmUpConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShowSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowSettings.Designer.cs">
+      <DependentUpon>FormShowSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWarmUpProgress.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWarmUpProgress.Designer.cs">
+      <DependentUpon>FormWarmUpProgress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormZeroPointConfirm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormZeroPointConfirm.Designer.cs">
+      <DependentUpon>FormZeroPointConfirm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniEdit.cs" />
+    <Compile Include="IniHelper.cs" />
+    <Compile Include="FormMDIParent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMDIParent.Designer.cs">
+      <DependentUpon>FormMDIParent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogMan.cs" />
+    <Compile Include="MeasureApi.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerialPortCommon.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="FormUserLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUserLogin.Designer.cs">
+      <DependentUpon>FormUserLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TCPClient.cs" />
+    <Compile Include="XrdConfig.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChildTexture.resx">
+      <DependentUpon>FormChildTexture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCurveFitting.resx">
+      <DependentUpon>FormCurveFitting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDeviceInit.resx">
+      <DependentUpon>FormDeviceInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChildAccessPort.resx">
+      <DependentUpon>FormChildAccessPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChildDeviceCtrl.resx">
+      <DependentUpon>FormChildDeviceCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChildDeviceParam.resx">
+      <DependentUpon>FormChildDeviceParam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChildLogo.resx">
+      <DependentUpon>FormChildLogo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChildMeasure.resx">
+      <DependentUpon>FormChildMeasure.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormHighVoltageConfirm.resx">
+      <DependentUpon>FormHighVoltageConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShortcutAbout.resx">
+      <DependentUpon>FormShortcutAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShortcutAutoFocus.resx">
+      <DependentUpon>FormShortcutAutoFocus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShortcutFiveAxis.resx">
+      <DependentUpon>FormShortcutFiveAxis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShortcutHelp.resx">
+      <DependentUpon>FormShortcutHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShortcutHighVoltage.resx">
+      <DependentUpon>FormShortcutHighVoltage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTCPClientTest.resx">
+      <DependentUpon>FormTCPClientTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWarmUpConfirm.resx">
+      <DependentUpon>FormWarmUpConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShowSettings.resx">
+      <DependentUpon>FormShowSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMDIParent.resx">
+      <DependentUpon>FormMDIParent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormWarmUpProgress.resx">
+      <DependentUpon>FormWarmUpProgress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormZeroPointConfirm.resx">
+      <DependentUpon>FormZeroPointConfirm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FormUserLogin.resx">
+      <DependentUpon>FormUserLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DllLibrary\DllLibrary.csproj">
+      <Project>{e1067202-ac9f-4ffe-8a3d-38e0fe01876e}</Project>
+      <Name>DllLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ZG_Config.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\底图.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户名登录框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\用户名待输入文字.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\登陆密码待输入文字.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\登陆密码输入框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\登陆系统1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\登陆系统2态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\English.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\简体中文.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\箭头1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\箭头2态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\语言选择框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\语言选择展开框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\底图1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\初始化完成1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\初始化完成2态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\暂时跳过.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\靶材选择底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\探测器选择底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\文件目录选择.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\选中框2态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\背景底图.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上边栏_一级菜单底图.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\左侧导航栏底图.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\帮助1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\帮助2态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关于1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\自动对焦1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\初始化1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\高压开关1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\五轴移动1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\应力计算1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\测量1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\设置1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\控制应用1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\001.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\详细参数底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开始按钮1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\终止按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\终止按钮1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logo动画区.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\背景底图1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\材料参数编辑底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\背景底图2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\详细参数底图1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\003.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\预热提示框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开始预热按钮1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\不预热按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\004.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\五轴移动底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\停止按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\移动1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\自动对焦底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开始对焦.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\高压开关底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\关闭高压.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\开启高压1态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\停止对焦.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\织构测量_一态.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\参数设置底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\实时绘图底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\数据结果底图.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\上边栏_一级菜单底图3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\取消按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\确认按钮.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\零点修正提示框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\停止预热.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\参数确认框.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\取消按钮1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\确认按钮1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\0011.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\002.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

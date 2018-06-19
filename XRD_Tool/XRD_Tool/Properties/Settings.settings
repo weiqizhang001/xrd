@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="XRD_Tool.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TARGET_TYPE" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Cr</Value>
+    </Setting>
+    <Setting Name="WARM_UP_TIME" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DETECTOR_TYPE" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="SAVE_PATH" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SAMPLE_NAME" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SAMPLE_NO" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MEASURE_METHOD" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PEAK_DEGREE" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="DEGREE_RANGE" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MEASURE_STEP" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="MEASURE_TIME" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TUBE_VOLTAGE" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="TUBE_CURRENT" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="PSI_ANGLE" Type="System.Double[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="X_ANGLE" Type="System.Double[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Y_ANGLE" Type="System.Double[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="Z_ANGLE" Type="System.Double[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ALPHA_ANGLE" Type="System.Double[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="BETA_ANGLE" Type="System.Double[]" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="COM" Type="System.String" Scope="User">
+      <Value Profile="(Default)">COM1</Value>
+    </Setting>
+    <Setting Name="INI_PATH" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

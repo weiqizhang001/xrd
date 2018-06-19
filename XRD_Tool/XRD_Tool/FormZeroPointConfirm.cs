@@ -1,0 +1,84 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace XRD_Tool
+{
+    public partial class FormZeroPointConfirm : Form
+    {
+        public FormZeroPointConfirm(FormDeviceInit form)
+        {
+            InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false; 
+        }
+
+        private void FormZeroPointConfirm_Load(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void buttonOk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void FormZeroPointConfirm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            try
+            {
+                //System.Environment.Exit(0);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+    }
+}
