@@ -27,7 +27,7 @@ namespace XRD_Tool
         public CurveFitting myCurveFit;
         public byte deviceStateBackup;
 
-        public int ChartRealTimeShowIndex = 0;
+        public int ChartRealTimeShowIndex = 0;  // 实时绘图的当前数据的行号的索引
 
         private System.Timers.Timer timerHighVoltage_10min; // 11.测量完成后，如果10分钟没有对高压进行操作，则关闭高压SKM0 0
         public System.Timers.Timer timerUartRecv;
@@ -1477,7 +1477,7 @@ namespace XRD_Tool
                         if (myApi.RecvDeviceReady(text))
                         {
                             timerUartRecv.Enabled = false;
-                            myApi.SendMeasureTime();
+                            myApi.SendMeasureTime(myApi.MeasureTime);
                             timerUartRecv.Interval = 1000 * 5;
                             timerUartRecv.Enabled = true;
                         }
@@ -1514,7 +1514,7 @@ namespace XRD_Tool
                                 }
                                 else if (1 == myApi.MeasureMethod)
                                 {
-                                    myApi.SendAngleAlpha(0); // 20180525,STA0 first
+                                    myApi.SendAngleA(0); // 20180525,STA0 first
                                     timerUartRecv.Interval = 1000 * 30;
                                     timerUartRecv.Enabled = true;
                                 }
@@ -1547,7 +1547,7 @@ namespace XRD_Tool
                             timerUartRecv.Enabled = true;
                         }
                     }
-                    else if (DEVICE_CMD_ID.SET_ALPHA_ANGLE == LastSendCmd)
+                    else if (DEVICE_CMD_ID.SET_A_ANGLE == LastSendCmd)
                     {
                         if (myApi.RecvDeviceReady(text))
                         {
@@ -1694,7 +1694,7 @@ namespace XRD_Tool
                             timerUartRecv.Enabled = false;
                             if (!MeasureStopFlag)
                             {
-                                myApi.SendMeasureTime();
+                                myApi.SendMeasureTime(myApi.MeasureTime);
 
                                 timerTCPRecv.Interval = 1000 * 5;
                                 timerTCPRecv.Enabled = true;
@@ -1727,7 +1727,7 @@ namespace XRD_Tool
                     //            }
                     //            else if (1 == myApi.MeasureMethod)
                     //            {
-                    //                myApi.SendAngleAlpha(0); // 20180525,STA0 first
+                    //                myApi.SendAngleA(0); // 20180525,STA0 first
                     //                timerUartRecv.Interval = 1000 * 30;
                     //                timerUartRecv.Enabled = true;
                     //            }
@@ -1760,7 +1760,7 @@ namespace XRD_Tool
                             timerUartRecv.Enabled = true;
                         }
                     }
-                    else if (DEVICE_CMD_ID.SET_ALPHA_ANGLE == LastSendCmd)
+                    else if (DEVICE_CMD_ID.SET_A_ANGLE == LastSendCmd)
                     {
                         if (myApi.RecvDeviceReady(text))
                         {
@@ -2104,7 +2104,7 @@ namespace XRD_Tool
                             }
                             else if (3 == myApi.MeasureMethod)
                             {
-                                myApi.SendAngleAlpha(0); // 20180525,STA0 first
+                                myApi.SendAngleA(0); // 20180525,STA0 first
                                 timerUartRecv.Interval = 1000 * 30;
                                 timerUartRecv.Enabled = true;
                             }

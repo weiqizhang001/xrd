@@ -23,8 +23,8 @@ namespace XRD_Tool
         public const byte SET_SCAN_STEP_DISTANCE = 0x09;
         public const byte SET_START_MEA_POS = 0x0A;
         public const byte SET_PSI_ANGLE = 0x0B;
-        public const byte SET_ALPHA_ANGLE = 0x0C;
-        public const byte SET_BETA_ANGLE = 0x0D;
+        public const byte SET_A_ANGLE = 0x0C;
+        public const byte SET_B_ANGLE = 0x0D;
         public const byte SET_X_ANGLE = 0x0E;
         public const byte SET_Y_ANGLE = 0x0F;
         public const byte SET_Z_ANGLE = 0x10;
@@ -42,6 +42,10 @@ namespace XRD_Tool
         public const byte SET_TARGET = 0x22;
         public const byte READ_FRAME = 0x23;
         public const byte STATUS = 0x24;
+        public const byte SET_PSI_ANGLE_0 = 0x25;
+        public const byte SET_A_ANGLE_0 = 0x26;
+        public const byte SET_B_ANGLE_0 = 0x27;
+        public const byte SET_B_SPEED = 0x28;
 
         public const byte LDA_RESET = 0x80;
         public const byte LDA_SET_TARGET = 0x81;

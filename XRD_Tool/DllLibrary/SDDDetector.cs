@@ -194,20 +194,6 @@ namespace DllLibrary
         }
 
         /// <summary>
-        /// SPExxx：（0.0002~10）设定电机速度，单位：度/秒。
-        /// </summary>
-        /// <param name="mode"></param>
-        /// <returns></returns>
-        public byte[] SetMoterSpeed(double speed)
-        {
-            string Str = "SPE" + speed.ToString() + "\r";
-
-            byte[] Cmd = System.Text.Encoding.ASCII.GetBytes(Str);
-
-            return Cmd;
-        }
-
-        /// <summary>
         /// SANxxx：（0~+170）控制两个电机（TS、TD）同时转动到xxx角度，（xxx角度=TS转动角度+TD转动角度）。
         /// 例如SAN20，则TS转动10度、TD转动10度，他们的共转动20度范围。
         /// </summary>
@@ -305,7 +291,8 @@ namespace DllLibrary
 
         /// <summary>
         /// 设定脉冲计数时间（设置测量时间）
-        /// INTxxx：（0.05S~10S）设定脉冲计数时间，单位：秒。（0.01<xxx<100）
+        /// INTxxx：（0.05S~10S）设定脉冲计数时间，单位：秒。
+        /// 
         /// </summary>
         /// <param name="mode"></param>
         /// <returns></returns>
@@ -345,6 +332,20 @@ namespace DllLibrary
         public byte[] SetStepScanMode(double degreeRange)
         {
             string Str = "SSC" + degreeRange.ToString() + "\r";
+
+            byte[] Cmd = System.Text.Encoding.ASCII.GetBytes(Str);
+
+            return Cmd;
+        }
+
+        /// <summary>
+        /// CSBxxx：
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public byte[] SetCycleScanMode(double degree)
+        {
+            string Str = "CSB" + degree.ToString() + "\r";
 
             byte[] Cmd = System.Text.Encoding.ASCII.GetBytes(Str);
 
@@ -807,7 +808,7 @@ namespace DllLibrary
         /// </summary>
         /// <param name="speed"></param>
         /// <returns></returns>
-        public byte[] FiveAxis_SetMoterSpeed(double speed)
+        public byte[] FiveAxis_SetSpeedMoterB(double speed)
         {
             string Str = "SPE" + speed.ToString() + "\r";
 

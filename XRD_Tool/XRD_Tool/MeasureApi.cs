@@ -437,7 +437,7 @@ namespace XRD_Tool
             }
         }
 
-        public void SendMeasureTime()
+        public void SendMeasureTime(double sec)
         {
             CurrentSendCmd = DEVICE_CMD_ID.SET_MES_TIME;
             SendRetryCount = 0;
@@ -446,13 +446,13 @@ namespace XRD_Tool
             {
                 if (0 == DetectorType)
                 {
-                    UartSendBuf = SDDApi.SetPulseCountSecond(MeasureTime);
+                    UartSendBuf = SDDApi.SetPulseCountSecond(sec);
                     UartSendCmd(UartSendBuf);
                 }
                 else
                 {
                     //int ms = 100;
-                    int ms = (int)(MeasureTime * 1000);
+                    int ms = (int)(sec * 1000);
                     TCPSendBuf = LDAApi.SetExposureTimeOfOneFrame((ms * 1000 * 1000) / 100 );
                     TCPSend(TCPSendBuf);
                 }
@@ -517,14 +517,48 @@ namespace XRD_Tool
             }
         }
 
-        public void SendAngleAlpha(double angle)
+        public void SendAngleA(double angle)
         {
-            CurrentSendCmd = DEVICE_CMD_ID.SET_ALPHA_ANGLE;
+            CurrentSendCmd = DEVICE_CMD_ID.SET_A_ANGLE;
             SendRetryCount = 0;
 
             try
             {
                 UartSendBuf = SDDApi.FiveAxis_MoveMotorA(angle);
+
+                UartSendCmd(UartSendBuf);
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        public void SendAngleB(double angle)
+        {
+            CurrentSendCmd = DEVICE_CMD_ID.SET_B_ANGLE;
+            SendRetryCount = 0;
+
+            try
+            {
+                UartSendBuf = SDDApi.FiveAxis_MoveMotorB(angle);
+
+                UartSendCmd(UartSendBuf);
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        public void SendSpeedB(double speed)
+        {
+            CurrentSendCmd = DEVICE_CMD_ID.SET_B_SPEED;
+            SendRetryCount = 0;
+
+            try
+            {
+                UartSendBuf = SDDApi.FiveAxis_SetSpeedMoterB(speed);
 
                 UartSendCmd(UartSendBuf);
             }
@@ -854,6 +888,22 @@ namespace XRD_Tool
                     TCPSendBuf = LDAApi.Start();
                     TCPSend(TCPSendBuf);
                 }     
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        public void SendStartCycleScan(double degree)
+        {
+            CurrentSendCmd = DEVICE_CMD_ID.START_SCAN;
+            SendRetryCount = 0;
+
+            try
+            {
+                UartSendBuf = SDDApi.SetCycleScanMode(degree);
+                UartSendCmd(UartSendBuf);
             }
             catch (Exception ex)
             {

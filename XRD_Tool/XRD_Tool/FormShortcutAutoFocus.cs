@@ -165,12 +165,12 @@ namespace XRD_Tool
                     if (result)
                     {
                         timerUartRecv.Enabled = false;
-                        myApi.SendAngleAlpha(myApi.AutoFocus[2]);
+                        myApi.SendAngleA(myApi.AutoFocus[2]);
                         timerUartRecv.Interval = 1000 * 30;
                         timerUartRecv.Enabled = true;
                     }
                 }
-                else if (DEVICE_CMD_ID.SET_ALPHA_ANGLE == LastSendCmd)
+                else if (DEVICE_CMD_ID.SET_A_ANGLE == LastSendCmd)
                 {
                     result = myApi.RecvDeviceReady(text);
                     if (result)

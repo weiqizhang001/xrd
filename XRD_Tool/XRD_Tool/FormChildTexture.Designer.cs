@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panelSetting = new System.Windows.Forms.Panel();
             this.groupBoxSettings = new System.Windows.Forms.GroupBox();
@@ -50,11 +54,11 @@
             this.textBoxTubeVoltage = new System.Windows.Forms.TextBox();
             this.textBoxTubeCurrent = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxBM = new System.Windows.Forms.TextBox();
             this.labelScanMethod = new System.Windows.Forms.Label();
             this.textBoxPsiStartAngle = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBoxPsiStoptAngle = new System.Windows.Forms.TextBox();
+            this.textBoxPsiStopAngle = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.textBoxPhiSpeed = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -63,10 +67,16 @@
             this.buttonStop = new System.Windows.Forms.Button();
             this.panelRealTimeChart = new System.Windows.Forms.Panel();
             this.panelDataResultTable = new System.Windows.Forms.Panel();
+            this.chartRealTime = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.dataGridViewCalcResult = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSetting.SuspendLayout();
             this.groupBoxSettings.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.panelRealTimeChart.SuspendLayout();
+            this.panelDataResultTable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartRealTime)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalcResult)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -133,11 +143,11 @@
             this.tableLayoutPanel2.Controls.Add(this.textBoxTubeVoltage, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.textBoxTubeCurrent, 1, 6);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 7);
-            this.tableLayoutPanel2.Controls.Add(this.textBox1, 1, 7);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxBM, 1, 7);
             this.tableLayoutPanel2.Controls.Add(this.labelScanMethod, 0, 8);
             this.tableLayoutPanel2.Controls.Add(this.textBoxPsiStartAngle, 1, 10);
             this.tableLayoutPanel2.Controls.Add(this.label14, 0, 10);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxPsiStoptAngle, 1, 11);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxPsiStopAngle, 1, 11);
             this.tableLayoutPanel2.Controls.Add(this.label15, 0, 11);
             this.tableLayoutPanel2.Controls.Add(this.textBoxPhiSpeed, 1, 12);
             this.tableLayoutPanel2.Controls.Add(this.label16, 0, 12);
@@ -376,14 +386,14 @@
             this.label12.Text = "B/M选择：";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBox1
+            // textBoxBM
             // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox1.Location = new System.Drawing.Point(149, 213);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(215, 26);
-            this.textBox1.TabIndex = 46;
+            this.textBoxBM.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxBM.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxBM.Location = new System.Drawing.Point(149, 213);
+            this.textBoxBM.Name = "textBoxBM";
+            this.textBoxBM.Size = new System.Drawing.Size(215, 26);
+            this.textBoxBM.TabIndex = 46;
             // 
             // labelScanMethod
             // 
@@ -419,15 +429,15 @@
             this.label14.Text = "ψ 起始角度：";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // textBoxPsiStoptAngle
+            // textBoxPsiStopAngle
             // 
-            this.textBoxPsiStoptAngle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxPsiStoptAngle.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBoxPsiStoptAngle.Location = new System.Drawing.Point(149, 333);
-            this.textBoxPsiStoptAngle.Name = "textBoxPsiStoptAngle";
-            this.textBoxPsiStoptAngle.Size = new System.Drawing.Size(215, 26);
-            this.textBoxPsiStoptAngle.TabIndex = 51;
-            this.textBoxPsiStoptAngle.Text = "0";
+            this.textBoxPsiStopAngle.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxPsiStopAngle.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBoxPsiStopAngle.Location = new System.Drawing.Point(149, 333);
+            this.textBoxPsiStopAngle.Name = "textBoxPsiStopAngle";
+            this.textBoxPsiStopAngle.Size = new System.Drawing.Size(215, 26);
+            this.textBoxPsiStopAngle.TabIndex = 51;
+            this.textBoxPsiStopAngle.Text = "0";
             // 
             // label15
             // 
@@ -500,6 +510,7 @@
             // 
             this.panelRealTimeChart.BackgroundImage = global::XRD_Tool.Properties.Resources.实时绘图底图;
             this.panelRealTimeChart.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelRealTimeChart.Controls.Add(this.chartRealTime);
             this.panelRealTimeChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRealTimeChart.Location = new System.Drawing.Point(382, 3);
             this.panelRealTimeChart.Name = "panelRealTimeChart";
@@ -510,11 +521,57 @@
             // 
             this.panelDataResultTable.BackgroundImage = global::XRD_Tool.Properties.Resources.数据结果底图;
             this.panelDataResultTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelDataResultTable.Controls.Add(this.dataGridViewCalcResult);
             this.panelDataResultTable.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelDataResultTable.Location = new System.Drawing.Point(382, 343);
             this.panelDataResultTable.Name = "panelDataResultTable";
             this.panelDataResultTable.Size = new System.Drawing.Size(879, 335);
             this.panelDataResultTable.TabIndex = 2;
+            // 
+            // chartRealTime
+            // 
+            chartArea2.BackColor = System.Drawing.Color.White;
+            chartArea2.Name = "ChartArea1";
+            this.chartRealTime.ChartAreas.Add(chartArea2);
+            this.chartRealTime.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend2.DockedToChartArea = "ChartArea1";
+            legend2.Name = "Legend1";
+            this.chartRealTime.Legends.Add(legend2);
+            this.chartRealTime.Location = new System.Drawing.Point(0, 0);
+            this.chartRealTime.Name = "chartRealTime";
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+            series2.Legend = "Legend1";
+            series2.Name = "射线强度";
+            series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Double;
+            series2.YValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.Int32;
+            this.chartRealTime.Series.Add(series2);
+            this.chartRealTime.Size = new System.Drawing.Size(879, 334);
+            this.chartRealTime.TabIndex = 1;
+            // 
+            // dataGridViewCalcResult
+            // 
+            this.dataGridViewCalcResult.AllowUserToAddRows = false;
+            this.dataGridViewCalcResult.AllowUserToDeleteRows = false;
+            this.dataGridViewCalcResult.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewCalcResult.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dataGridViewCalcResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewCalcResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("SimSun", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.NullValue = "0.00";
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCalcResult.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewCalcResult.Location = new System.Drawing.Point(3, 28);
+            this.dataGridViewCalcResult.Name = "dataGridViewCalcResult";
+            this.dataGridViewCalcResult.ReadOnly = true;
+            this.dataGridViewCalcResult.RowTemplate.Height = 23;
+            this.dataGridViewCalcResult.Size = new System.Drawing.Size(853, 245);
+            this.dataGridViewCalcResult.TabIndex = 1;
             // 
             // FormChildTexture
             // 
@@ -535,6 +592,10 @@
             this.groupBoxSettings.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.panelRealTimeChart.ResumeLayout(false);
+            this.panelDataResultTable.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartRealTime)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalcResult)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -564,11 +625,11 @@
         private System.Windows.Forms.Label label11;
         public System.Windows.Forms.TextBox textBoxFaceExp;
         private System.Windows.Forms.Label label12;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBoxBM;
         private System.Windows.Forms.Label labelScanMethod;
         public System.Windows.Forms.TextBox textBoxPsiStartAngle;
         private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.TextBox textBoxPsiStoptAngle;
+        public System.Windows.Forms.TextBox textBoxPsiStopAngle;
         private System.Windows.Forms.Label label15;
         public System.Windows.Forms.TextBox textBoxPhiSpeed;
         private System.Windows.Forms.Label label16;
@@ -576,5 +637,7 @@
         public System.Windows.Forms.TextBox textBoxMeasureTime;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonStop;
+        public System.Windows.Forms.DataVisualization.Charting.Chart chartRealTime;
+        public System.Windows.Forms.DataGridView dataGridViewCalcResult;
     }
 }
