@@ -66,16 +66,16 @@
             this.textBoxMeasureTime = new System.Windows.Forms.TextBox();
             this.buttonStop = new System.Windows.Forms.Button();
             this.panelRealTimeChart = new System.Windows.Forms.Panel();
-            this.panelDataResultTable = new System.Windows.Forms.Panel();
             this.chartRealTime = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.panelDataResultTable = new System.Windows.Forms.Panel();
             this.dataGridViewCalcResult = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
             this.panelSetting.SuspendLayout();
             this.groupBoxSettings.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panelRealTimeChart.SuspendLayout();
-            this.panelDataResultTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chartRealTime)).BeginInit();
+            this.panelDataResultTable.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalcResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -517,17 +517,6 @@
             this.panelRealTimeChart.Size = new System.Drawing.Size(879, 334);
             this.panelRealTimeChart.TabIndex = 1;
             // 
-            // panelDataResultTable
-            // 
-            this.panelDataResultTable.BackgroundImage = global::XRD_Tool.Properties.Resources.数据结果底图;
-            this.panelDataResultTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelDataResultTable.Controls.Add(this.dataGridViewCalcResult);
-            this.panelDataResultTable.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDataResultTable.Location = new System.Drawing.Point(382, 343);
-            this.panelDataResultTable.Name = "panelDataResultTable";
-            this.panelDataResultTable.Size = new System.Drawing.Size(879, 335);
-            this.panelDataResultTable.TabIndex = 2;
-            // 
             // chartRealTime
             // 
             chartArea2.BackColor = System.Drawing.Color.White;
@@ -548,6 +537,17 @@
             this.chartRealTime.Series.Add(series2);
             this.chartRealTime.Size = new System.Drawing.Size(879, 334);
             this.chartRealTime.TabIndex = 1;
+            // 
+            // panelDataResultTable
+            // 
+            this.panelDataResultTable.BackgroundImage = global::XRD_Tool.Properties.Resources.数据结果底图;
+            this.panelDataResultTable.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelDataResultTable.Controls.Add(this.dataGridViewCalcResult);
+            this.panelDataResultTable.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDataResultTable.Location = new System.Drawing.Point(382, 343);
+            this.panelDataResultTable.Name = "panelDataResultTable";
+            this.panelDataResultTable.Size = new System.Drawing.Size(879, 335);
+            this.panelDataResultTable.TabIndex = 2;
             // 
             // dataGridViewCalcResult
             // 
@@ -593,8 +593,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.panelRealTimeChart.ResumeLayout(false);
-            this.panelDataResultTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chartRealTime)).EndInit();
+            this.panelDataResultTable.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCalcResult)).EndInit();
             this.ResumeLayout(false);
 

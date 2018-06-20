@@ -36,6 +36,7 @@ namespace XRD_Tool
         
         public bool OpenDataFileFlag = false;
 
+
         public FormMDIParent(FormDeviceInit form)
         {
             myFormInit = form;

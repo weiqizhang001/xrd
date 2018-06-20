@@ -40,6 +40,9 @@ namespace XRD_Tool
         public volatile bool RecvDataFinishFlag = false; // 单组测量接收数据完成flag
         public System.Timers.Timer timerUartRecv;
 
+        private System.Timers.Timer timerHighVoltage_10min; // 11.测量完成后，如果10分钟没有对高压进行操作，则关闭高压SKM0 0
+
+
         public FormChildTexture(FormMDIParent form)
         {
             myParentForm = form;
@@ -47,6 +50,10 @@ namespace XRD_Tool
             myConfig = form.myConfig;
             myApi = form.myApi;
 
+            timerHighVoltage_10min = new System.Timers.Timer(1000 * 60 * 10); // 10min
+            timerHighVoltage_10min.Elapsed += new System.Timers.ElapsedEventHandler(timerHighVoltage_10min_Timeout);
+            timerHighVoltage_10min.AutoReset = true;
+            timerHighVoltage_10min.Enabled = false;
 
             // timer
             timerUartRecv = new System.Timers.Timer(10000);
@@ -62,6 +69,28 @@ namespace XRD_Tool
                 deviceStateBackup = myUart.DeviceState;
                 myUart.DeviceState = DEVICE_STATE.SCAN;
                 myUart.RegControl(this, UartRecv_Texture, DEVICE_STATE.SCAN);
+            }
+        }
+
+        private void timerHighVoltage_10min_Timeout(object sender, EventArgs e)
+        {
+            timerHighVoltage_10min.Enabled = false;
+            myUart.Pack_Debug_out(null, "HV 10min timeout" + "]");
+
+            myApi.SendHighVoltageDown(0, 0);
+            timerUartRecv.Interval = 1000 * 10;
+            timerUartRecv.Enabled = true;
+        }
+
+        private void timerUartRecv_Timeout(object sender, EventArgs e)
+        {
+            try
+            {
+                timerUartRecv.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
             }
         }
 
@@ -476,30 +505,6 @@ namespace XRD_Tool
                     {
                         timerUartRecv.Enabled = false;
 
-                        myApi.SendAnglePsi(0);
-                        myApi.CurrentSendCmd = DEVICE_CMD_ID.SET_PSI_ANGLE_0;
-                        timerUartRecv.Interval = 1000 * 10;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else if (DEVICE_CMD_ID.SET_PSI_ANGLE_0 == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-
-                        myApi.SendAngleB(0);
-                        myApi.CurrentSendCmd = DEVICE_CMD_ID.SET_B_ANGLE_0;
-                        timerUartRecv.Interval = 1000 * 30;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else if (DEVICE_CMD_ID.SET_B_ANGLE_0 == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-
                         myApi.SendHighVoltageUp(TubeVoltage[GroupIndex_Psi], TubeCurrent[GroupIndex_Psi]);
                         timerUartRecv.Interval = 1000 * 40;
                         timerUartRecv.Enabled = true;
@@ -546,12 +551,43 @@ namespace XRD_Tool
                     if (myApi.RecvDeviceReady(text))
                     {
                         timerUartRecv.Enabled = false;
-                        myApi.SendOpenShutter();
-                        timerUartRecv.Interval = 1000 * 5;
-                        timerUartRecv.Enabled = true;
+                        if (0 == GroupIndex_Psi)
+                        {
+                            myApi.SendOpenShutter();
+                            timerUartRecv.Interval = 1000 * 5;
+                            timerUartRecv.Enabled = true;
+                        }
+                        else
+                        {
+                            myApi.SendAngleA(myApi.AnglePsi[MeasureIndex_Psi]);
+                            timerUartRecv.Interval = 1000 * 30;
+                            timerUartRecv.Enabled = true;
+                        } 
                     }
                 }
                 else if (DEVICE_CMD_ID.OPEN_LIGHT_SHUTTER == LastSendCmd)
+                {
+                    if (myApi.RecvDeviceReady(text))
+                    {
+                        timerUartRecv.Enabled = false;
+
+                        myApi.SendAngleA(myApi.AnglePsi[MeasureIndex_Psi]);
+                        timerUartRecv.Interval = 1000 * 30;
+                        timerUartRecv.Enabled = true;
+                     }
+                }
+                else if (DEVICE_CMD_ID.SET_A_ANGLE == LastSendCmd)
+                {
+                    if (myApi.RecvDeviceReady(text))
+                    {
+                        timerUartRecv.Enabled = false;
+
+                        myApi.SendAngleB(0);
+                        timerUartRecv.Interval = 1000 * 30;
+                        timerUartRecv.Enabled = true;
+                    }
+                }
+                else if (DEVICE_CMD_ID.SET_B_ANGLE == LastSendCmd)
                 {
                     if (myApi.RecvDeviceReady(text))
                     {
@@ -561,169 +597,15 @@ namespace XRD_Tool
                         timerUartRecv.Interval = 1000 * 5;
                         timerUartRecv.Enabled = true;
 
-                        MeasureTimeCount = 0;
-                        MeasureTimeCountMax = (int)(myApi.TotalDataCount * (myApi.MeasureTime + 0.12));
-                        timerMeasureTimeCountDown.Enabled = true;
-                        timerMeasureTimeCountDown.Interval = 1000;
-                        myUart.Pack_Debug_out(null, "CountDown start" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
-                    }
-                }
-
-
-
-
-
-
-
-                else if (DEVICE_CMD_ID.SET_MOTOR_MODE == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-                        myApi.SendMeasureTime(myApi.MeasureTime);
-                        timerUartRecv.Interval = 1000 * 5;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else if (DEVICE_CMD_ID.SET_MES_TIME == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-                        myApi.SendMeasureStep();
-                        timerUartRecv.Interval = 1000 * 5;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else if (DEVICE_CMD_ID.SET_SCAN_STEP_DISTANCE == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-
-                        if (1 == FiveAxisInUse)
-                        {
-                            myApi.SendAngleABXYZ(MeasureIndex_XYZ, MeasureIndex_Psi);
-                            timerUartRecv.Interval = 1000 * 60;
-                            timerUartRecv.Enabled = true;
-                        }
-                        else
-                        {
-                            if (0 == myApi.MeasureMethod)
-                            {
-                                myApi.SendAnglePsi(myApi.AnglePsi[MeasureIndex_Psi]);
-                                timerUartRecv.Interval = 1000 * 10;
-                                timerUartRecv.Enabled = true;
-                            }
-                            else if (1 == myApi.MeasureMethod)
-                            {
-                                myApi.SendAngleA(0); // 20180525,STA0 first
-                                timerUartRecv.Interval = 1000 * 30;
-                                timerUartRecv.Enabled = true;
-                            }
-                            else
-                            {
-
-                            }
-                        }
-                    }
-                }
-                else if (DEVICE_CMD_ID.SET_ABXYZ_ANGLE == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-
-                        myApi.SendAnglePsi(myApi.AnglePsi[MeasureIndex_Psi]);
-                        timerUartRecv.Interval = 1000 * 10;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else if (DEVICE_CMD_ID.SET_PSI_ANGLE == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-
-                        myApi.SendStartMeaurePostion();
-                        timerUartRecv.Interval = 1000 * 30;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else if (DEVICE_CMD_ID.SET_A_ANGLE == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-                        myApi.SendAnglePsi(myApi.AnglePsi[MeasureIndex_Psi]);
-                        timerUartRecv.Interval = 1000 * 10;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                
-                else if (DEVICE_CMD_ID.SET_HIGH_VOLTAGE_UP == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-
-                        myApi.SendGetHighVoltage();
-                        timerUartRecv.Interval = 1000 * 5;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else if (DEVICE_CMD_ID.GET_HIGH_VOLTAGE == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        result = myApi.RecvGetHighVoltage(text);
-                        timerUartRecv.Enabled = false;
-
                         myApi.RecvDataCount = 0;
                         myApi.RecvDataTable.Rows.Clear();
-                        myApi.TotalDataCount = (int)((myApi.StopDegree - myApi.StartDegree) / myApi.MeasureStep) + 1;
+                        myApi.TotalDataCount = (int)(360 / PhiSpeed[GroupIndex_Psi]);
                         myUart.Pack_Debug_out(null, "[Texture] totalcount=" + myApi.TotalDataCount.ToString());
                         myApi.SSC_RecvDataReadIndex = 0;
                         myApi.SSC_RecvDataWriteIndex = 0;
                         myApi.SSC_AnalyzeDataCount = 0;
 
                         myApi.RecvDataTableSaveFileStart(myApi.AnglePsi[MeasureIndex_Psi], MeasureIndex_Psi);
-
-                        if (MeasureIndex_Psi == 0)
-                        {
-                            myApi.SendOpenShutter();
-                            timerUartRecv.Interval = 1000 * 5;
-                            timerUartRecv.Enabled = true;
-                        }
-                        else
-                        {
-                            myApi.SendStartScan();
-                            timerUartRecv.Interval = 1000 * 5;
-                            timerUartRecv.Enabled = true;
-
-                            MeasureTimeCount = 0;
-                            MeasureTimeCountMax = (int)(myApi.TotalDataCount * (myApi.MeasureTime + 0.12));
-                            timerMeasureTimeCountDown.Enabled = true;
-                            timerMeasureTimeCountDown.Interval = 1000;
-                            myUart.Pack_Debug_out(null, "CountDown start" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
-                        }
-                    }
-                }
-                else if (DEVICE_CMD_ID.OPEN_LIGHT_SHUTTER == LastSendCmd)
-                {
-                    if (myApi.RecvDeviceReady(text))
-                    {
-                        timerUartRecv.Enabled = false;
-
-                        myApi.SendStartScan();
-                        timerUartRecv.Interval = 1000 * 5;
-                        timerUartRecv.Enabled = true;
-
-                        MeasureTimeCount = 0;
-                        MeasureTimeCountMax = (int)(myApi.TotalDataCount * (myApi.MeasureTime + 0.12));
-                        timerMeasureTimeCountDown.Enabled = true;
-                        timerMeasureTimeCountDown.Interval = 1000;
-                        myUart.Pack_Debug_out(null, "CountDown start" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
                     }
                 }
                 else if (DEVICE_CMD_ID.START_SCAN == LastSendCmd)
@@ -758,6 +640,7 @@ namespace XRD_Tool
                         myApi.SendHighVoltageDown(myApi.DefaultVotage, myApi.DefaultCurrent);
                         timerUartRecv.Interval = 1000 * 10;
                         timerUartRecv.Enabled = true;
+
                         timerHighVoltage_10min.Enabled = true;
                     }
                 }
@@ -785,31 +668,14 @@ namespace XRD_Tool
                     ChartRealTimeShowIndex = 0;
                     chartRealTime.Series["射线强度"].Points.Clear();
 
-                    double xMin;
-                    double xMax;
-
-                    if (0 == myApi.DetectorType)
-                    {
-                        xMin = myApi.StartDegree;
-                        xMax = myApi.StopDegree;
-                    }
-                    else
-                    {
-                        xMin = myApi.StartDegree - myApi.StopDegree / 2;
-                        xMax = myApi.StartDegree + myApi.StopDegree / 2;
-                    }
-
+                    double xMin = 0;
+                    double xMax = 360;
 
                     chartRealTime.ChartAreas["ChartArea1"].AxisX.Maximum = xMax;
                     chartRealTime.ChartAreas["ChartArea1"].AxisX.Minimum = xMin;
 
-                    chartFitting.ChartAreas["ChartArea1"].AxisX.Maximum = xMax;
-                    chartFitting.ChartAreas["ChartArea1"].AxisX.Minimum = xMin;
-
                     if (MeasureIndex_Psi == 0)
                     {
-                        chartFitting.Series.Clear();
-                        StressViewClear();
                         dataGridViewClear();
                     }
                 }
@@ -836,10 +702,6 @@ namespace XRD_Tool
                             buttonStart.Enabled = true;
                             buttonStop.Enabled = false;
                             groupBoxSettings.Enabled = true;
-                            checkBoxFiveAxis.Enabled = true;
-                            checkBoxFiveAxis_CheckedChanged(this, null);
-                            timerMeasureTimeCountDown.Enabled = false;
-                            myUart.Pack_Debug_out(null, "CountDown stop" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
                             myParentForm.tableLayoutPanel1.Enabled = true;
                             myParentForm.tableLayoutPanel2.Enabled = true;
 
@@ -852,7 +714,7 @@ namespace XRD_Tool
                 }
                 else if ((DEVICE_CMD_ID.START_SCAN == LastSendCmd) && (myApi.RecvDataCount > 0) && (0 == myApi.DetectorType))
                 {
-                    ChartRealTimeUpdate();
+                    //ChartRealTimeUpdate();
                 }
                 else
                 {
@@ -863,7 +725,7 @@ namespace XRD_Tool
                 {
                     RecvDataFinishFlag = false;
 
-                    PsiMeasureFinish();
+                    PhiMeasureFinish();
                 }
             }
             catch (Exception ex)
@@ -872,18 +734,80 @@ namespace XRD_Tool
             }
         }
 
+        public void PhiMeasureFinish()
+        {
+            if (MeasureIndex_Psi < myApi.AnglePsi.Length - 1)
+            {
+                MeasureIndex_Psi++;
+
+                myApi.SendAngleA(myApi.AnglePsi[MeasureIndex_Psi]);
+                timerUartRecv.Interval = 1000 * 10;
+                timerUartRecv.Enabled = true;
+            }
+            else
+            {
+                MeasureIndex_Psi = 0;
+                if ((GroupIndex_Psi < PsiStartAngle.Length - 1)
+                    && (checkBoxExpert.Checked == true))
+                {
+                    GroupIndex_Psi++;
+
+                    ScanSetupStart();
+                }
+                else
+	            {
+                    myApi.SendCloseShutter();
+                    timerUartRecv.Interval = 1000 * 5;
+                    timerUartRecv.Enabled = true;
+	            }
+                //// 更新应力计算结果
+                //StressViewUpdate(myApi.AnglePsi.Length);
+                //// 生成RSC文件
+                //ToolStripMenuItemRSC_Click(this, null);
+                //// 生成xls文件
+                //ChartFittingImageName = myApi.RecvDataFileNameArray[0].Replace("txt", "bmp");
+                //ChartFittingExport(ChartFittingImageName);
+                ////ToolStripMenuItemMsExcel_Click(this, null);
+
+                //if (1 == FiveAxisInUse)
+                //{
+                //    if (MeasureIndex_XYZ < myApi.AngleBeta.Length - 1)
+                //    {
+                //        MeasureIndex_XYZ++;
+                //        myApi.SendAngleABXYZ(MeasureIndex_XYZ, MeasureIndex_Psi);
+                //        timerUartRecv.Interval = 1000 * 60;
+                //        timerUartRecv.Enabled = true;
+                //    }
+                //    else
+                //    {
+                //        myApi.SendCloseShutter();
+                //        timerUartRecv.Interval = 1000 * 5;
+                //        timerUartRecv.Enabled = true;
+                //    }
+                //}
+                //else
+                //{
+                //    myApi.SendCloseShutter();
+                //    timerUartRecv.Interval = 1000 * 5;
+                //    timerUartRecv.Enabled = true;
+                //}
+            }
+        }
+
         public void PsiMeasureFinish()
         {
-            // 更新拟合图像
-            string seriesName = myApi.AnglePsi[MeasureIndex_Psi].ToString();
-            string fileName = myApi.RecvDataFileName;
-            double[] x;
-            double[] y;
-            // 解析txt文件
-            myUart.Pack_Debug_out(null, "[Texture] parse txt=" + fileName);
-            CurveFitting.txt_parse(fileName, out x, out y);
-            // 更新拟合图像
-            ChartFittingUpdate(seriesName, fileName, x);
+            // 织构测量没有拟合
+
+            //// 更新拟合图像
+            //string seriesName = myApi.AnglePsi[MeasureIndex_Psi].ToString();
+            //string fileName = myApi.RecvDataFileName;
+            //double[] x;
+            //double[] y;
+            //// 解析txt文件
+            //myUart.Pack_Debug_out(null, "[Texture] parse txt=" + fileName);
+            //CurveFitting.txt_parse(fileName, out x, out y);
+            //// 更新拟合图像
+            //ChartFittingUpdate(seriesName, fileName, x);
 
             if (MeasureIndex_Psi < myApi.AnglePsi.Length - 1)
             {
@@ -902,37 +826,37 @@ namespace XRD_Tool
             else
             {
                 MeasureIndex_Psi = 0;
-                // 更新应力计算结果
-                StressViewUpdate(myApi.AnglePsi.Length);
-                // 生成RSC文件
-                ToolStripMenuItemRSC_Click(this, null);
-                // 生成xls文件
-                ChartFittingImageName = myApi.RecvDataFileNameArray[0].Replace("txt", "bmp");
-                ChartFittingExport(ChartFittingImageName);
-                //ToolStripMenuItemMsExcel_Click(this, null);
+                //// 更新应力计算结果
+                //StressViewUpdate(myApi.AnglePsi.Length);
+                //// 生成RSC文件
+                //ToolStripMenuItemRSC_Click(this, null);
+                //// 生成xls文件
+                //ChartFittingImageName = myApi.RecvDataFileNameArray[0].Replace("txt", "bmp");
+                //ChartFittingExport(ChartFittingImageName);
+                ////ToolStripMenuItemMsExcel_Click(this, null);
 
-                if (1 == FiveAxisInUse)
-                {
-                    if (MeasureIndex_XYZ < myApi.AngleBeta.Length - 1)
-                    {
-                        MeasureIndex_XYZ++;
-                        myApi.SendAngleABXYZ(MeasureIndex_XYZ, MeasureIndex_Psi);
-                        timerUartRecv.Interval = 1000 * 60;
-                        timerUartRecv.Enabled = true;
-                    }
-                    else
-                    {
-                        myApi.SendCloseShutter();
-                        timerUartRecv.Interval = 1000 * 5;
-                        timerUartRecv.Enabled = true;
-                    }
-                }
-                else
-                {
-                    myApi.SendCloseShutter();
-                    timerUartRecv.Interval = 1000 * 5;
-                    timerUartRecv.Enabled = true;
-                }
+                //if (1 == FiveAxisInUse)
+                //{
+                //    if (MeasureIndex_XYZ < myApi.AngleBeta.Length - 1)
+                //    {
+                //        MeasureIndex_XYZ++;
+                //        myApi.SendAngleABXYZ(MeasureIndex_XYZ, MeasureIndex_Psi);
+                //        timerUartRecv.Interval = 1000 * 60;
+                //        timerUartRecv.Enabled = true;
+                //    }
+                //    else
+                //    {
+                //        myApi.SendCloseShutter();
+                //        timerUartRecv.Interval = 1000 * 5;
+                //        timerUartRecv.Enabled = true;
+                //    }
+                //}
+                //else
+                //{
+                //    myApi.SendCloseShutter();
+                //    timerUartRecv.Interval = 1000 * 5;
+                //    timerUartRecv.Enabled = true;
+                //}
             }
         }
 

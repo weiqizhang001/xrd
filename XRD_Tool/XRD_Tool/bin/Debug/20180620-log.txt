@@ -1,0 +1,12 @@
+[2018-06-20 14:01:12 165]Log Start******************************************************
+
+[2018-06-20 14:01:13 309] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 14:01:13 630] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 14:01:14 471] [DeviceInit] Init Skip
+
+[2018-06-20 14:01:16 193] [Parent] Menu Texture
+
+[2018-06-20 14:01:18 890] [Parent] closing
+[2018-06-20 14:01:18 891]Log End******************************************************
