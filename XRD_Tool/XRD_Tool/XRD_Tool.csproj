@@ -54,6 +54,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormChildCurveFitting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChildCurveFitting.Designer.cs">
+      <DependentUpon>FormChildCurveFitting.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormChildTexture.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +198,9 @@
     <Compile Include="XrdConfig.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChildCurveFitting.resx">
+      <DependentUpon>FormChildCurveFitting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormChildTexture.resx">
       <DependentUpon>FormChildTexture.cs</DependentUpon>

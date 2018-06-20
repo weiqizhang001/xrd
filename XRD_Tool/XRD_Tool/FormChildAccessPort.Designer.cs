@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 524);
+            this.ClientSize = new System.Drawing.Size(1318, 697);
             this.ControlBox = false;
             this.Controls.Add(this.button_ClearScreen);
             this.Controls.Add(this.button_ClearSend);

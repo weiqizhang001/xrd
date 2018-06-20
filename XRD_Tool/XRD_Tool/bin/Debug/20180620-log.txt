@@ -10,3 +10,107 @@
 
 [2018-06-20 14:01:18 890] [Parent] closing
 [2018-06-20 14:01:18 891]Log End******************************************************
+[2018-06-20 16:28:33 925]Log Start******************************************************
+
+[2018-06-20 16:28:35 054] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 16:28:35 253] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 16:28:36 202] [DeviceInit] Init Skip
+
+[2018-06-20 16:28:38 541] [Parent] Menu Setup
+
+[2018-06-20 16:28:40 932] [Parent] closing
+[2018-06-20 16:28:40 933]Log End******************************************************
+[2018-06-20 16:42:57 081]Log Start******************************************************
+
+[2018-06-20 16:42:58 099] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 16:42:58 320] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 16:43:07 055] [DeviceInit] Init Skip
+
+[2018-06-20 16:43:10 749] [Parent] closing
+[2018-06-20 16:43:10 750]Log End******************************************************
+[2018-06-20 16:45:25 753]Log Start******************************************************
+
+[2018-06-20 16:45:26 663] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 16:45:26 807] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 16:45:27 379] [DeviceInit] Init Skip
+[2018-06-20 16:46:23 686]Log Start******************************************************
+
+[2018-06-20 16:46:24 579] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 16:46:24 720] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 16:46:25 775] [DeviceInit] Init Skip
+
+[2018-06-20 16:46:31 137] [Parent] Shortcut About
+
+[2018-06-20 16:46:33 714] [Parent] closing
+[2018-06-20 16:46:33 715]Log End******************************************************
+[2018-06-20 18:29:34 944]Log Start******************************************************
+
+[2018-06-20 18:29:35 795] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 18:29:35 998] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 18:29:37 055] [DeviceInit] Init Skip
+
+[2018-06-20 18:29:40 273] [Parent] CurveFittingParametre
+
+[2018-06-20 18:30:19 733] [Parent] closing
+[2018-06-20 18:30:19 734]Log End******************************************************
+[2018-06-20 18:33:39 984]Log Start******************************************************
+
+[2018-06-20 18:33:41 623] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 18:33:41 770] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 18:33:42 664] [DeviceInit] Init Skip
+
+[2018-06-20 18:33:44 513] [Parent] CurveFittingParametre
+[2018-06-20 18:35:31 193]Log Start******************************************************
+
+[2018-06-20 18:35:32 096] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 18:35:32 240] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 18:35:33 044] [DeviceInit] Init Skip
+
+[2018-06-20 18:35:34 385] [Parent] CurveFittingParametre
+
+[2018-06-20 18:36:00 182] [Parent] closing
+[2018-06-20 18:36:00 183]Log End******************************************************
+[2018-06-20 18:39:41 864]Log Start******************************************************
+
+[2018-06-20 18:39:43 108] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 18:39:43 247] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 18:39:44 376] [DeviceInit] Init Skip
+
+[2018-06-20 18:39:49 969] [Parent] CurveFittingParametre
+
+[2018-06-20 18:40:01 930] [Parent] CurveFittingParametre
+
+[2018-06-20 18:40:08 169] [Parent] CurveFittingParametre
+
+[2018-06-20 18:40:16 395] [Parent] closing
+[2018-06-20 18:40:16 395]Log End******************************************************
+[2018-06-20 20:40:42 849]Log Start******************************************************
+[2018-06-20 20:41:12 388]Log End******************************************************
+[2018-06-20 20:41:18 408]Log Start******************************************************
+
+[2018-06-20 20:41:20 668] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 20:41:20 788] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 20:41:24 826] [DeviceInit] Init Skip
+
+[2018-06-20 20:41:28 327] [Parent] CurveFittingParametre
+
+[2018-06-20 20:41:36 215] [Parent] closing
+[2018-06-20 20:41:36 216]Log End******************************************************

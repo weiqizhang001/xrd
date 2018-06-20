@@ -210,7 +210,7 @@
             this.buttonMenuCtrl.FlatAppearance.BorderSize = 0;
             this.buttonMenuCtrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuCtrl.Image = global::XRD_Tool.Properties.Resources.控制应用1态;
-            this.buttonMenuCtrl.Location = new System.Drawing.Point(1013, 4);
+            this.buttonMenuCtrl.Location = new System.Drawing.Point(1012, 4);
             this.buttonMenuCtrl.Name = "buttonMenuCtrl";
             this.buttonMenuCtrl.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuCtrl.TabIndex = 12;
@@ -225,7 +225,7 @@
             this.buttonMenuMea.FlatAppearance.BorderSize = 0;
             this.buttonMenuMea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuMea.Image = global::XRD_Tool.Properties.Resources.测量1态;
-            this.buttonMenuMea.Location = new System.Drawing.Point(575, 4);
+            this.buttonMenuMea.Location = new System.Drawing.Point(574, 4);
             this.buttonMenuMea.Name = "buttonMenuMea";
             this.buttonMenuMea.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuMea.TabIndex = 10;
@@ -239,7 +239,7 @@
             this.buttonMenuDev.FlatAppearance.BorderSize = 0;
             this.buttonMenuDev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuDev.Image = global::XRD_Tool.Properties.Resources.设置1态;
-            this.buttonMenuDev.Location = new System.Drawing.Point(721, 4);
+            this.buttonMenuDev.Location = new System.Drawing.Point(720, 4);
             this.buttonMenuDev.Name = "buttonMenuDev";
             this.buttonMenuDev.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuDev.TabIndex = 11;
@@ -253,7 +253,7 @@
             this.buttonMenuTexture.FlatAppearance.BorderSize = 0;
             this.buttonMenuTexture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuTexture.Image = global::XRD_Tool.Properties.Resources.织构测量_一态;
-            this.buttonMenuTexture.Location = new System.Drawing.Point(867, 4);
+            this.buttonMenuTexture.Location = new System.Drawing.Point(866, 4);
             this.buttonMenuTexture.Name = "buttonMenuTexture";
             this.buttonMenuTexture.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuTexture.TabIndex = 11;
@@ -278,7 +278,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 86F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 87F));
             this.tableLayoutPanel2.Controls.Add(this.buttonExit, 6, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonUser, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonMenuCtrl, 4, 0);
@@ -300,9 +300,9 @@
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Image = global::XRD_Tool.Properties.Resources._002;
-            this.buttonExit.Location = new System.Drawing.Point(1266, 4);
+            this.buttonExit.Location = new System.Drawing.Point(1265, 4);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(80, 42);
+            this.buttonExit.Size = new System.Drawing.Size(81, 42);
             this.buttonExit.TabIndex = 14;
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
@@ -314,7 +314,7 @@
             this.buttonUser.FlatAppearance.BorderSize = 0;
             this.buttonUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUser.Image = global::XRD_Tool.Properties.Resources._0011;
-            this.buttonUser.Location = new System.Drawing.Point(1159, 4);
+            this.buttonUser.Location = new System.Drawing.Point(1158, 4);
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(100, 42);
             this.buttonUser.TabIndex = 13;
@@ -374,11 +374,13 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.IsMdiContainer = true;
+            this.KeyPreview = true;
             this.Name = "FormMDIParent";
             this.Text = "浩元仪器测量软件（Ver1.0）";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMDIParent_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormMDIParent_FormClosed);
             this.Load += new System.EventHandler(this.MDIParent_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormMDIParent_KeyDown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

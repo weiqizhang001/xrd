@@ -20,6 +20,7 @@ namespace XRD_Tool
         public FormChildTexture myFormTexture;
         public FormChildDeviceCtrl myFormDevCtrl;
         public FormChildAccessPort myFormAccessPort;
+        public FormChildCurveFitting myFormCurveFitting;
 
         public FormDeviceInit myFormInit;
         public FormShortcutHighVoltage myFormShortHighVoltge;
@@ -235,27 +236,27 @@ namespace XRD_Tool
 
         private void buttonShortAbout_Click(object sender, EventArgs e)
         {
-            try
-            {
-                myUart.Pack_Debug_out(null, "[Parent] Shortcut About");
+            //try
+            //{
+            //    myUart.Pack_Debug_out(null, "[Parent] Shortcut About");
 
-                if (!HaveOpened(this, "FormChildAccessPort"))
-                {
-                    //return;
-                }
+            //    if (!HaveOpened(this, "FormChildAccessPort"))
+            //    {
+            //        return;
+            //    }
 
-                myFormAccessPort = new FormChildAccessPort(this);
-                myFormAccessPort.MdiParent = this;
-                myFormAccessPort.WindowState = FormWindowState.Maximized;
-                myFormAccessPort.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                myFormAccessPort.Text = "";
-                myFormAccessPort.ControlBox = false;
-                myFormAccessPort.Show();
-            }
-            catch (Exception ex)
-            {
-                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
-            } 
+            //    myFormAccessPort = new FormChildAccessPort(this);
+            //    myFormAccessPort.MdiParent = this;
+            //    myFormAccessPort.WindowState = FormWindowState.Maximized;
+            //    myFormAccessPort.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //    myFormAccessPort.Text = "";
+            //    myFormAccessPort.ControlBox = false;
+            //    myFormAccessPort.Show();
+            //}
+            //catch (Exception ex)
+            //{
+            //    myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            //} 
         }
 
         private void buttonShortOpen_Click(object sender, EventArgs e)
@@ -446,6 +447,64 @@ namespace XRD_Tool
             catch (Exception ex)
             {
                 myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        private void FormMDIParent_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.Alt && e.KeyCode == Keys.S)
+            {
+                //MessageBox.Show("Ctrl + Alt + S");
+                try
+                {
+                    myUart.Pack_Debug_out(null, "[Parent] AccessPort");
+
+                    if (!HaveOpened(this, "FormChildAccessPort"))
+                    {
+                        //return;
+                    }
+
+                    myFormAccessPort = new FormChildAccessPort(this);
+                    myFormAccessPort.MdiParent = this;
+                    myFormAccessPort.WindowState = FormWindowState.Maximized;
+                    myFormAccessPort.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                    myFormAccessPort.Text = "";
+                    myFormAccessPort.ControlBox = false;
+                    myFormAccessPort.Show();
+                }
+                catch (Exception ex)
+                {
+                    myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+                } 
+            }
+            else if (e.Control && e.Alt && e.KeyCode == Keys.F)
+            {
+                //MessageBox.Show("Ctrl + Alt + F");
+                try
+                {
+                    myUart.Pack_Debug_out(null, "[Parent] CurveFittingParametre");
+
+                    if (!HaveOpened(this, "FormChildCurveFitting"))
+                    {
+                        //return;
+                    }
+
+                    myFormCurveFitting = new FormChildCurveFitting();
+                    myFormCurveFitting.MdiParent = this;
+                    myFormCurveFitting.WindowState = FormWindowState.Maximized;
+                    myFormCurveFitting.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                    myFormCurveFitting.Text = "";
+                    myFormCurveFitting.ControlBox = false;
+                    myFormCurveFitting.Show();
+                }
+                catch (Exception ex)
+                {
+                    myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+                }
+            }
+            else
+            {
+
             }
         }
 

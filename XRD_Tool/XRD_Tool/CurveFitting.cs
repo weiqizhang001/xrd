@@ -26,8 +26,8 @@ namespace XRD_Tool
 
             string CurrentPath = System.IO.Directory.GetCurrentDirectory();
             //string ScriptFileName = CurrentPath + "\\CurveFittingPearson_20180505.py";
-            string ScriptFileName = CurrentPath + "\\CurveFittingPearson_20180526.py";
-            string ResultFileName = CurrentPath + "\\CalcResult.py";
+            string ScriptFileName = CurrentPath + "\\Resources\\CurveFittingPearson_20180526.py";
+            string ResultFileName = CurrentPath + "\\Resources\\CalcResult.py";
 
 
             strCallPyCmd = "python";

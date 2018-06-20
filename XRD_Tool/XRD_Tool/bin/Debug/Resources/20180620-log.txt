@@ -1,0 +1,11 @@
+[2018-06-20 21:37:48 837]Log Start******************************************************
+
+[2018-06-20 21:37:49 962] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-20 21:37:50 118] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-20 21:37:50 821] [DeviceInit] Init Skip
+
+[2018-06-20 21:37:52 383] [Parent] Menu Measure
+
+[2018-06-20 21:37:52 586] [Measure] check 5 Axis=Unchecked

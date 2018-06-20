@@ -215,11 +215,11 @@ namespace XRD_Tool
                 // 创建目录
             }
 
-            IniFileName = CurrentPath + "\\XRD_Tool.ini";
+            IniFileName = CurrentPath + "\\Resources\\XRD_Tool.ini";
             //PyScriptFileName = CurrentPath + "\\CurveFittingPearson_20180505.py";
             //PyResultFileName = CurrentPath + "\\CalcResult.py";
 
-            LogFileName = CurrentPath + "\\" + DateTime.Now.ToString("yyyyMMdd") + "-log.txt";
+            LogFileName = CurrentPath + "\\Resources\\" + DateTime.Now.ToString("yyyyMMdd") + "-log.txt";
         }
 
         public void ReadIniFile()
