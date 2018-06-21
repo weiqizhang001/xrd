@@ -144,6 +144,12 @@
     <Compile Include="FormShortcutHighVoltage.Designer.cs">
       <DependentUpon>FormShortcutHighVoltage.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormShowZGSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShowZGSettings.Designer.cs">
+      <DependentUpon>FormShowZGSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTCPClientTest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     <EmbeddedResource Include="FormShortcutHighVoltage.resx">
       <DependentUpon>FormShortcutHighVoltage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormShowZGSettings.resx">
+      <DependentUpon>FormShowZGSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormTCPClientTest.resx">
       <DependentUpon>FormTCPClientTest.cs</DependentUpon>
     </EmbeddedResource>
@@ -299,6 +308,7 @@
     <Content Include="Resources\ZG_Config.ini">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\织构参数确认框.png" />
     <None Include="Resources\底图.jpg" />
   </ItemGroup>
   <ItemGroup>

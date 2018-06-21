@@ -303,3 +303,4 @@ D:\work\xrd\github\xrd\XRD_Tool\XRD_Tool\obj\Debug\XRD_Tool.FormUserLogin.resour
 D:\work\xrd\github\xrd\XRD_Tool\XRD_Tool\obj\Debug\XRD_Tool.csproj.GenerateResource.Cache
 D:\work\xrd\github\xrd\XRD_Tool\XRD_Tool\obj\Debug\XRD_Tool.exe
 D:\work\xrd\github\xrd\XRD_Tool\XRD_Tool\obj\Debug\XRD_Tool.pdb
+D:\work\xrd\github\xrd\XRD_Tool\XRD_Tool\obj\Debug\XRD_Tool.FormShowZGSettings.resources

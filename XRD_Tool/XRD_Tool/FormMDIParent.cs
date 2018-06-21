@@ -425,7 +425,7 @@ namespace XRD_Tool
 
         public void statusBar_HighVoltageUpdate(double v, double c)
         {
-            myUart.Pack_Debug_out(null, "[Parent] closing");
+            myUart.Pack_Debug_out(null, "[Parent] voltage update");
 
             showVoltage = v;
             showCurrent = c;
@@ -505,6 +505,18 @@ namespace XRD_Tool
             else
             {
 
+            }
+        }
+
+        private void contextMenuStrip1_ItemAdded(object sender, ToolStripItemEventArgs e)
+        {
+            if (e.Item.Text.Length == 0 //隐藏子窗体图标
+                || e.Item.Text == "最小化(&N)"//隐藏最小化按钮
+                || e.Item.Text == "还原(&R)"//隐藏还原按钮
+                || e.Item.Text == "关闭(&C)")//隐藏最关闭按钮
+
+            {
+                e.Item.Visible = false;
             }
         }
 

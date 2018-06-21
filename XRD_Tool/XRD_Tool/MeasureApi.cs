@@ -672,7 +672,7 @@ namespace XRD_Tool
             return SDDApi.FiveAxis_RecvMotorPosOfABXYZ(data, ref angle);
         }
         
-        public void SendStartMeaurePostion()
+        public void SendStartMeaurePostion(double degree)
         {
             CurrentSendCmd = DEVICE_CMD_ID.SET_START_MEA_POS;
             SendRetryCount = 0;
@@ -681,11 +681,11 @@ namespace XRD_Tool
             {
                 if ((0 == MeasureMethod) || (2 == MeasureMethod))
                 {
-                    UartSendBuf = SDDApi.MoveMoterTSAndTD(StartDegree);
+                    UartSendBuf = SDDApi.MoveMoterTSAndTD(degree);
                 }
                 else if ((1 == MeasureMethod) || (3 == MeasureMethod))
                 {
-                    UartSendBuf = SDDApi.SetStartMeasurePos(StartDegree);
+                    UartSendBuf = SDDApi.SetStartMeasurePos(degree);
                 }
                 else
                 {
@@ -957,7 +957,12 @@ namespace XRD_Tool
             }
         }
 
-
+        /// <summary>
+        /// SSC命令返回数据异步解析
+        /// 每一条命令0x0A开始，0x0D结尾，固定20个字节长度
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         public bool SSC_RecvDataAnalyze(byte[] data)
         {
             bool result = false;
@@ -1007,6 +1012,65 @@ namespace XRD_Tool
                 myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
             }
             
+            return result;
+        }
+
+
+        /// <summary>
+        /// CSB命令返回数据异步解析
+        /// 每一条命令0x0A开始，0x0D结尾，固定21个字节长度
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public bool CSB_RecvDataAnalyze(byte[] data)
+        {
+            bool result = false;
+            bool head = false;
+            int head_pos = 0;
+
+            try
+            {
+                System.Array.Copy(data, 0, SSC_RecvDataArray, SSC_RecvDataWriteIndex, data.Length);
+                SSC_RecvDataWriteIndex += data.Length;
+                if (SSC_RecvDataWriteIndex > SSC_RecvDataArray.Length)
+                {
+                    SSC_RecvDataWriteIndex = 0;
+                }
+
+                for (int i = SSC_RecvDataReadIndex; i < SSC_RecvDataWriteIndex; i++)
+                {
+                    if (SSC_RecvDataArray[i] == '\n')   // 0x0A
+                    {
+                        head = true;
+                        head_pos = i;
+                    }
+                    else if (SSC_RecvDataArray[i] == '\r')  // 0x0D
+                    {
+                        if ((head) && (i - head_pos == 20))
+                        {
+                            System.Array.Copy(SSC_RecvDataArray, head_pos, SSC_AnalyzeDataArray, SSC_AnalyzeDataCount, 21);
+                            SSC_AnalyzeDataCount += 21;
+                            if (SSC_AnalyzeDataCount > SSC_AnalyzeDataArray.Length)
+                            {
+                                SSC_AnalyzeDataCount = 0;
+                            }
+
+                            head = false;
+                            head_pos = 0;
+                            SSC_RecvDataReadIndex = i;
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+
             return result;
         }
 
@@ -1210,6 +1274,7 @@ namespace XRD_Tool
                 str = str.Replace("\r", " ");
                 str = str.Replace("\n", " ");
                 str = str.Replace("C=", " ");
+                str = str.Replace("#", " ");
 
                 string[] str_array = str.Split(new string[] { " " }, StringSplitOptions.RemoveEmptyEntries);
 

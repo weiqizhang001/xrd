@@ -7,6 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
+using System.IO;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Threading;
+using System.Text.RegularExpressions;
 
 namespace XRD_Tool
 {
@@ -17,6 +22,8 @@ namespace XRD_Tool
         public XrdConfig myConfig;
         public MeasureApi myApi;
         public IniEdit iniE = new IniEdit();
+
+        DataTable dtJG = new DataTable();
 
         public byte deviceStateBackup;
 
@@ -41,7 +48,8 @@ namespace XRD_Tool
         public System.Timers.Timer timerUartRecv;
 
         private System.Timers.Timer timerHighVoltage_10min; // 11.测量完成后，如果10分钟没有对高压进行操作，则关闭高压SKM0 0
-
+        public Color[] colorArray = { Color.Blue, Color.Orange, Color.Red, Color.LightBlue, Color.Green, Color.Purple, Color.Pink };
+        Series mySeries;
 
         public FormChildTexture(FormMDIParent form)
         {
@@ -67,8 +75,8 @@ namespace XRD_Tool
             if (myUart.port_UART.IsOpen)
             {
                 deviceStateBackup = myUart.DeviceState;
-                myUart.DeviceState = DEVICE_STATE.SCAN;
-                myUart.RegControl(this, UartRecv_Texture, DEVICE_STATE.SCAN);
+                myUart.DeviceState = DEVICE_STATE.TEXTURE;
+                myUart.RegControl(this, UartRecv_Texture, DEVICE_STATE.TEXTURE);
             }
         }
 
@@ -100,13 +108,25 @@ namespace XRD_Tool
             {
                 myApi.MeasureMethod = myConfig.MeasureMethod;
 
-
+                dtJG.Columns.Add("序号");
+                dtJG.Columns.Add("Psi角度");
+                dtJG.Columns.Add("Phi角度");
+                dtJG.Columns.Add("强度");
+                dataGridView1.DataSource = dtJG;
+                dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 iniE.IniEditConfig("ZG_Config.ini");//建立连接
                 checkBoxExpert.Checked = false;
                 //设置专家模式或通用模式
                 checkBoxExpert_CheckedChanged(null, null);
-                
 
+                if (myUart.port_UART.IsOpen)
+                {
+
+                }
+                else
+                {
+                    buttonStart.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -186,6 +206,8 @@ namespace XRD_Tool
         {
             if (value)
             {
+                textBoxSampleName.Text = iniE.GetVlueWithKey("Expert", "SampeName");
+                comboBoxScanMethod.Text = "null";
                 textBoxSampleSn.Text = iniE.GetVlueWithKey("Expert", "SampeSn");
                 textBoxFaceExp.Text = iniE.GetVlueWithKey("Expert", "FaceExp");
                 textBoxPeakDegree.Text = iniE.GetVlueWithKey("Expert", "PeakDegree");
@@ -200,6 +222,8 @@ namespace XRD_Tool
             }
             else
             {
+                textBoxSampleName.Text = iniE.GetVlueWithKey("General", "SampeName");
+                comboBoxScanMethod.Text = iniE.GetVlueWithKey("General", "ScanMethod");
                 textBoxSampleSn.Text = iniE.GetVlueWithKey("General", "SampeSn");
                 textBoxFaceExp.Text = iniE.GetVlueWithKey("General", "FaceExp");
                 textBoxPeakDegree.Text = iniE.GetVlueWithKey("General", "PeakDegree");
@@ -221,6 +245,7 @@ namespace XRD_Tool
         {
             if (value)
             {
+                iniE.SaveValueWithKey("Expert", "SampeName", textBoxSampleName.Text.ToString().Trim());
                 iniE.SaveValueWithKey("Expert", "SampeSn", textBoxSampleSn.Text.ToString().Trim());
                 iniE.SaveValueWithKey("Expert", "FaceExp", textBoxFaceExp.Text.ToString().Trim());
                 iniE.SaveValueWithKey("Expert", "PeakDegree", textBoxPeakDegree.Text.ToString().Trim());
@@ -232,9 +257,11 @@ namespace XRD_Tool
                 iniE.SaveValueWithKey("Expert", "PsiStoptAngle", textBoxPsiStopAngle.Text.ToString().Trim());
                 iniE.SaveValueWithKey("Expert", "textBoxPhiSpeed", textBoxPhiSpeed.Text.ToString().Trim());
                 iniE.SaveValueWithKey("Expert", "MeasureTime", textBoxMeasureTime.Text.ToString().Trim());
+                iniE.SaveValueWithKey("Expert", "ScanMethod", "null");
             }
             else
             {
+                iniE.SaveValueWithKey("General", "SampeName", textBoxSampleName.Text.ToString().Trim());
                 iniE.SaveValueWithKey("General", "SampeSn", textBoxSampleSn.Text.ToString().Trim());
                 iniE.SaveValueWithKey("General", "FaceExp", textBoxFaceExp.Text.ToString().Trim());
                 iniE.SaveValueWithKey("General", "PeakDegree", textBoxPeakDegree.Text.ToString().Trim());
@@ -246,6 +273,7 @@ namespace XRD_Tool
                 iniE.SaveValueWithKey("General", "PsiStoptAngle", textBoxPsiStopAngle.Text.ToString().Trim());
                 iniE.SaveValueWithKey("General", "textBoxPhiSpeed", textBoxPhiSpeed.Text.ToString().Trim());
                 iniE.SaveValueWithKey("General", "MeasureTime", textBoxMeasureTime.Text.ToString().Trim());
+                iniE.SaveValueWithKey("General", "ScanMethod", comboBoxScanMethod.Text.ToString().Trim());
             }
         }
         private void buttonStart_Click(object sender, EventArgs e)
@@ -255,7 +283,12 @@ namespace XRD_Tool
                 if (CheckValue())//校验
                 {
                     SaveConfig(checkBoxExpert.Checked);//保存参数
-
+                   FormShowZGSettings ShowForm = new FormShowZGSettings(checkBoxExpert.Checked);
+                    ShowForm.StartPosition = FormStartPosition.CenterScreen;
+                    DialogResult result = ShowForm.ShowDialog();
+                    if (result == DialogResult.OK)
+                    {
+                        dtJG.Clear();//清除数据
 
                     buttonStart.Enabled = false;
                     buttonStop.Enabled = true;
@@ -286,8 +319,16 @@ namespace XRD_Tool
                     PsiStopAngle = Array.ConvertAll(textBoxPsiStopAngle.Text.Split(','), double.Parse);
                     PhiSpeed = Array.ConvertAll(textBoxPhiSpeed.Text.Split(','), double.Parse);
                     MeasureTime = Array.ConvertAll(textBoxMeasureTime.Text.Split(','), double.Parse);
-                    
-                    ScanSetupStart();
+
+                    // debug
+                    for (int i = 0; i < PsiStopAngle.Length; i++)
+                    {
+                        PsiStopAngle[i] = 10;
+                    }
+                }
+
+
+                        ScanSetupStart();
                 }
                 else
                 {
@@ -315,6 +356,34 @@ namespace XRD_Tool
             }
         }
 
+        public void Binding(double _Psi, double[] _Phi, double[] _QD)
+        {
+            for (int i = 0; i < _Phi.Length; i++)
+            {
+                DataRow dr = dtJG.NewRow();
+                dr[0] = dtJG.Rows.Count + 1;//序号
+                dr[1] = _Psi.ToString();//PSI
+                dr[2] = _Phi[i].ToString();//phi
+                dr[3] = _QD[i].ToString();
+                dtJG.Rows.Add(dr);
+
+            }
+            
+        }
+        public void Binding(double _Psi, double _Phi, double _QD)
+        {
+            myUart.Pack_Debug_out(null, "Binding" + "[" + _Psi.ToString() + " " + _Phi.ToString() + " " + _QD.ToString() + "]");
+
+                DataRow dr = dtJG.NewRow();
+                dr[0] = dtJG.Rows.Count + 1;//序号
+                dr[1] = _Psi.ToString();//PSI
+                dr[2] = _Phi.ToString();//phi
+                dr[3] = _QD.ToString();
+                dtJG.Rows.Add(dr);
+
+            
+
+        }
         private void ScanSetupStart()
         {
             try
@@ -382,22 +451,220 @@ namespace XRD_Tool
                 return false;
             if (textBoxPeakDegree.Text.Split(',').Length != strdata.Length)//峰位角度
                 return false;
+
+            foreach (string  strs in textBoxPeakDegree.Text.Split(','))//峰位角度  95~168
+            {
+                try
+                {
+                    double fwjd = Convert.ToDouble(strs);
+                    if (95 <= fwjd && fwjd <= 168)
+                    {
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)//转换异常
+                {
+                    return false;
+                }
+            }
             if (textBoxTubeVoltage.Text.Split(',').Length != strdata.Length)//管电压
                 return false;
+           // myApi.TargetType   0:cr  1:cu
+            if (myApi.TargetType == 0)//cr
+            {
+                foreach (string strs in textBoxTubeVoltage.Text.Split(','))//管电压  10~25
+                {
+                    try
+                    {
+                        double gdy = Convert.ToDouble(strs);
+                        if (10 <= gdy && gdy <= 25)
+                        {
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)//转换异常
+                    {
+                        return false;
+                    }
+                }
+            }
+            else//cu
+            {
+                foreach (string strs in textBoxTubeVoltage.Text.Split(','))//管电压  10~40
+                {
+                    try
+                    {
+                        double gdy = Convert.ToDouble(strs);
+                        if (10 <= gdy && gdy <= 40)
+                        {
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)//转换异常
+                    {
+                        return false;
+                    }
+                }
+            }
             if (textBoxTubeCurrent.Text.Split(',').Length != strdata.Length)//管电流
                 return false;
+            if (myApi.TargetType == 0)//cr
+            {
+                foreach (string strs in textBoxTubeCurrent.Text.Split(','))//管电流  5~40
+                {
+                    try
+                    {
+                        double gdl = Convert.ToDouble(strs);
+                        if (5 <= gdl && gdl <= 40)
+                        {
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)//转换异常
+                    {
+                        return false;
+                    }
+                }
+            }
+            else//cu
+            {
+                foreach (string strs in textBoxTubeCurrent.Text.Split(','))//管电流  5~40
+                {
+                    try
+                    {
+                        double gdl = Convert.ToDouble(strs);
+                        if (5 <= gdl && gdl <= 40)
+                        {
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)//转换异常
+                    {
+                        return false;
+                    }
+                }
+            }
             if (textBoxBM.Text.Split(',').Length != strdata.Length)//B/M
                 return false;
+            foreach (string str in textBoxBM.Text.Split(','))
+            {
+                if (str == "B" || str == "M")
+                {
+
+                }
+                else
+                {
+                    return false;
+                }
+            }
             if (textBoxPsiStep.Text.Split(',').Length != strdata.Length)//步宽
                 return false;
+            foreach (string strs in textBoxPsiStep.Text.Split(','))//步宽  0.05~10
+            {
+                try
+                {
+                    double bk = Convert.ToDouble(strs);
+                    if (0.05 <= bk && bk <= 10)
+                    {
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)//转换异常
+                {
+                    return false;
+                }
+            }
             if (textBoxPsiStartAngle.Text.Split(',').Length != strdata.Length)//起始角度
                 return false;
+            
             if (textBoxPsiStopAngle.Text.Split(',').Length != strdata.Length)//终止角度
                 return false;
+            try
+            {
+                for (int i = 0; i < textBoxPsiStopAngle.Text.Split(',').Length; i++)//起始角度 终止角度  0~70  并且起始小于终止
+                {
+                    if (0 <= Convert.ToDouble(textBoxPsiStartAngle.Text.Split(',')[i]) && Convert.ToDouble(textBoxPsiStartAngle.Text.Split(',')[i]) < Convert.ToDouble(textBoxPsiStopAngle.Text.Split(',')[i]) && Convert.ToDouble(textBoxPsiStopAngle.Text.Split(',')[i]) >= 70)
+                    {
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
             if (textBoxPhiSpeed.Text.Split(',').Length != strdata.Length)//测量速度
                 return false;
+            foreach (string  strs in textBoxPhiSpeed.Text.Split(','))
+            {
+                int jg;
+                if (int.TryParse(strs, out jg))
+                {
+                    if (0 <= jg && jg <= 12)//数据范围0~12
+                    {
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else//非整数
+                {
+                    return false;
+                }
+            }
             if (textBoxMeasureTime.Text.Split(',').Length != strdata.Length)//测量时间
                 return false;
+
+            foreach (string strs in textBoxMeasureTime.Text.Split(','))//时间  0.05~10
+            {
+                try
+                {
+                    double sj = Convert.ToDouble(strs);
+                    if (0.05 <= sj && sj <= 10)
+                    {
+
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)//转换异常
+                {
+                    return false;
+                }
+            }
 
             //两个模式之分
             if (checkBoxExpert.Checked == true)//高级模式
@@ -489,7 +756,7 @@ namespace XRD_Tool
                         timerUartRecv.Enabled = false;
                         if (!MeasureStopFlag)
                         {
-                            myApi.SendStartMeaurePostion();
+                            myApi.SendStartMeaurePostion(PeakDegree[GroupIndex_Psi]);
                             timerUartRecv.Interval = 1000 * 30;
                             timerUartRecv.Enabled = true;
                         }
@@ -599,6 +866,7 @@ namespace XRD_Tool
 
                         myApi.RecvDataCount = 0;
                         myApi.RecvDataTable.Rows.Clear();
+                        ChartRealTimeShowIndex = 0;
                         myApi.TotalDataCount = (int)(360 / PhiSpeed[GroupIndex_Psi]);
                         myUart.Pack_Debug_out(null, "[Texture] totalcount=" + myApi.TotalDataCount.ToString());
                         myApi.SSC_RecvDataReadIndex = 0;
@@ -606,18 +874,20 @@ namespace XRD_Tool
                         myApi.SSC_AnalyzeDataCount = 0;
 
                         myApi.RecvDataTableSaveFileStart(myApi.AnglePsi[MeasureIndex_Psi], MeasureIndex_Psi);
+
+                        ChartRealTimeInit();
                     }
                 }
                 else if (DEVICE_CMD_ID.START_SCAN == LastSendCmd)
                 {
                     // save data
                     timerUartRecv.Enabled = false;
-                    myApi.SSC_RecvDataAnalyze(text);
+                    myApi.CSB_RecvDataAnalyze(text);
                     myApi.RecvDataTableUpdate(myApi.SSC_AnalyzeDataArray, myApi.SSC_AnalyzeDataCount);
                     myApi.RecvDataTableSaveFileProc(myApi.SSC_AnalyzeDataArray, myApi.SSC_AnalyzeDataCount);
 
-                    myApi.RecvDataCount += (myApi.SSC_AnalyzeDataCount / 20);
-                    myUart.Pack_Debug_out(null, "[Texture] analyzecount=" + (myApi.SSC_AnalyzeDataCount / 20).ToString() + "recvcount=" + myApi.RecvDataCount.ToString());
+                    myApi.RecvDataCount += (myApi.SSC_AnalyzeDataCount / 21);
+                    myUart.Pack_Debug_out(null, "[Texture] analyzecount=" + (myApi.SSC_AnalyzeDataCount / 21).ToString() + "totalrecvcount=" + myApi.RecvDataCount.ToString());
 
                     myApi.SSC_AnalyzeDataCount = 0;
                     Array.Clear(myApi.SSC_AnalyzeDataArray, 0, myApi.SSC_AnalyzeDataArray.Length);
@@ -714,7 +984,7 @@ namespace XRD_Tool
                 }
                 else if ((DEVICE_CMD_ID.START_SCAN == LastSendCmd) && (myApi.RecvDataCount > 0) && (0 == myApi.DetectorType))
                 {
-                    //ChartRealTimeUpdate();
+                    ChartRealTimeUpdate();
                 }
                 else
                 {
@@ -727,6 +997,63 @@ namespace XRD_Tool
 
                     PhiMeasureFinish();
                 }
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        public void ChartRealTimeInit()
+        {
+            try
+            {
+                string seriesName = "Group_" + GroupIndex_Psi.ToString() + "_Psi_" + myApi.AnglePsi[MeasureIndex_Psi].ToString();
+                
+                myUart.Pack_Debug_out(null, "[Texture] Chart RealTime Init,series=" + seriesName);
+
+                mySeries = new Series();
+                mySeries.ChartArea = "ChartArea1";
+                mySeries.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+                mySeries.Legend = "Legend1";
+
+                if (chartRealTime.Series.IsUniqueName(seriesName))
+                {
+                    mySeries.Name = seriesName;
+                }
+                else
+                {
+                    mySeries.Name = seriesName + "_" + MeasureIndex_Psi.ToString();
+                    myUart.Pack_Debug_out(null, "SeriesNameError" + "[" + seriesName + "," + mySeries.Name + "]");
+                }
+                int colorIndex = MeasureIndex_Psi % colorArray.Length;
+                mySeries.Color = colorArray[colorIndex];
+
+                chartRealTime.Series.Add(mySeries);
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        public void ChartRealTimeUpdate()
+        {
+            try
+            {
+                myUart.Pack_Debug_out(null, "Chart RealTime update" + "[start @" + ChartRealTimeShowIndex.ToString() + "rowsCount=" + myApi.RecvDataTable.Rows.Count.ToString() + "]");
+
+                for (int i = ChartRealTimeShowIndex; i < myApi.RecvDataTable.Rows.Count; i++)
+                {
+                    double x = Convert.ToDouble(myApi.RecvDataTable.Rows[i][0]);
+                    int y = Convert.ToInt32(myApi.RecvDataTable.Rows[i][1]);
+
+                    mySeries.Points.AddXY(x, y);
+                    // 更新数据结果显示
+                    Binding(myApi.AnglePsi[MeasureIndex_Psi], x, (double)y);
+                }
+
+                ChartRealTimeShowIndex = myApi.RecvDataTable.Rows.Count;
             }
             catch (Exception ex)
             {
@@ -809,6 +1136,7 @@ namespace XRD_Tool
             //// 更新拟合图像
             //ChartFittingUpdate(seriesName, fileName, x);
 
+
             if (MeasureIndex_Psi < myApi.AnglePsi.Length - 1)
             {
                 MeasureIndex_Psi++;
@@ -858,6 +1186,11 @@ namespace XRD_Tool
                 //    timerUartRecv.Enabled = true;
                 //}
             }
+        }
+
+        private void buttonStop_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

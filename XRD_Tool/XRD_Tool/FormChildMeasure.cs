@@ -925,13 +925,13 @@ namespace XRD_Tool
                 {
                     double x = Convert.ToDouble(myApi.RecvDataTable.Rows[i][0]);
                     int y = Convert.ToInt32(myApi.RecvDataTable.Rows[i][1]);
-                    if ((x == 0.0) || (y == 0))
-                    {
-                        continue;
-                    }
+                    //if ((x == 0.0) || (y == 0))
+                    //{
+                    //    continue;
+                    //}
                     chartRealTime.Series["射线强度"].Points.AddXY(x, y);
                 }
-                ChartRealTimeShowIndex = myApi.RecvDataTable.Rows.Count - 1;
+                ChartRealTimeShowIndex = myApi.RecvDataTable.Rows.Count;
             }
             catch (Exception ex)
             {
@@ -964,10 +964,10 @@ namespace XRD_Tool
 
                 for (int i = 0; i < x.Length; i++)
                 {
-                    if ((x[i] == 0.0) || (y[i] == 0.0))
-                    {
-                        continue;
-                    }
+                    //if ((x[i] == 0.0) || (y[i] == 0.0))
+                    //{
+                    //    continue;
+                    //}
 
                     chartRealTime.Series["射线强度"].Points.AddXY(x[i], y[i]);
                 }
@@ -1542,7 +1542,7 @@ namespace XRD_Tool
                         {
                             timerUartRecv.Enabled = false;
 
-                            myApi.SendStartMeaurePostion();
+                            myApi.SendStartMeaurePostion(myApi.StartDegree);
                             timerUartRecv.Interval = 1000 * 30;
                             timerUartRecv.Enabled = true;
                         }
@@ -1588,6 +1588,7 @@ namespace XRD_Tool
 
                             myApi.RecvDataCount = 0;
                             myApi.RecvDataTable.Rows.Clear();
+                            ChartRealTimeShowIndex = 0;
                             myApi.TotalDataCount = (int)((myApi.StopDegree - myApi.StartDegree) / myApi.MeasureStep) + 1;
                             myUart.Pack_Debug_out(null, "[Measure] totalcount=" + myApi.TotalDataCount.ToString());
                             myApi.SSC_RecvDataReadIndex = 0;
@@ -1755,7 +1756,7 @@ namespace XRD_Tool
                         {
                             timerUartRecv.Enabled = false;
 
-                            myApi.SendStartMeaurePostion();
+                            myApi.SendStartMeaurePostion(myApi.StartDegree);
                             timerUartRecv.Interval = 1000 * 30;
                             timerUartRecv.Enabled = true;
                         }
@@ -1801,6 +1802,7 @@ namespace XRD_Tool
 
                             myApi.RecvDataCount = 0;
                             myApi.RecvDataTable.Rows.Clear();
+                            ChartRealTimeShowIndex = 0;
                             myApi.TotalDataCount = (int)((myApi.StopDegree - myApi.StartDegree) / myApi.MeasureStep) + 1;
                             myUart.Pack_Debug_out(null, "[Measure] totalcount=" + myApi.TotalDataCount.ToString());
                             myApi.SSC_RecvDataReadIndex = 0;

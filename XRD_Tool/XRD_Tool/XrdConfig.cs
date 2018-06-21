@@ -61,9 +61,10 @@ namespace XRD_Tool
     {
         public const byte DEVICE_INIT = 0x01;
         public const byte SCAN = 0x02;
-        public const byte SHORTCUT_HIGH_VOLTAGE = 0x03;
-        public const byte SHORTCUT_FIVE_AXIS = 0x04;
-        public const byte SHORTCUT_AUTO_FOCUS = 0x05;
+        public const byte TEXTURE = 0x03;
+        public const byte SHORTCUT_HIGH_VOLTAGE = 0x04;
+        public const byte SHORTCUT_FIVE_AXIS = 0x05;
+        public const byte SHORTCUT_AUTO_FOCUS = 0x06;
         public const byte DEVICE_DEBUG = 0xFE;
         public const byte DEVICE_ERROR = 0xFF;
     }
