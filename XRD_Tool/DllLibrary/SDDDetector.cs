@@ -455,7 +455,11 @@ namespace DllLibrary
                 }
                 else
                 {
-                    return false;
+                    //return false;
+                    voltage = 0;
+                    current = 0;
+
+                    return true;
                 }
                 
             }

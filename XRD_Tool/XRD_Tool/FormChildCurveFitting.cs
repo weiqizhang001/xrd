@@ -12,23 +12,68 @@ namespace XRD_Tool
 {
     public partial class FormChildCurveFitting : Form
     {
-        public int CurveFitFunctionIndex;   // 0:PearsonVII 1：PearsonVII参考Jade6 2：PearsonVII参考Jade6 with 3 steps
-        public bool CustomExpEnabled;       // true: 指定exponent  false: 不指定exponent
-        public double PearsonExponent;
-        public double PearsonSkewness;
-        public int BackgroudType;           // 0:不扣除背景 1：85%扣除背景 2：曲线水平拟合扣除背景
+        public FormMDIParent myParentForm;
+        public XrdConfig myConfig;
 
-
-        public FormChildCurveFitting()
+        public FormChildCurveFitting(FormMDIParent form)
         {
+            myParentForm = form;
+            myConfig = form.myConfig;
+
+
             InitializeComponent();
         }
 
         private void FormChildCurveFitting_Load(object sender, EventArgs e)
         {
-            radioButton_PearsonVII.Checked = true;
-            radioButton_DefaultBG.Checked = true;
-            checkBox_CustomExp.Checked = false;
+            myConfig.ReadPearson();
+
+            if (0 == myConfig.FunctionIndex)
+            {
+                radioButton_PearsonVII.Checked = true;
+            }
+            else if (1 == myConfig.FunctionIndex)
+            {
+                radioButton_PearsonVIIJade.Checked = true;
+            }
+            else if (2 == myConfig.FunctionIndex)
+            {
+                radioButton_PearsonVIIJade3Step.Checked = true;
+            }
+            else
+            {
+                radioButton_PearsonVII.Checked = true;
+                myConfig.FunctionIndex = 0;
+            }
+
+            if (1 == myConfig.CustomExpEnabled)
+            {
+                checkBox_CustomExp.Checked = true;
+                textBox_Exp.Text = myConfig.n.ToString();
+                textBox_S.Text = myConfig.s.ToString();
+            }
+            else
+            {
+                checkBox_CustomExp.Checked = false;
+            }
+
+            if (0 == myConfig.BackgroudType)
+            {
+                radioButton_DefaultBG.Checked = true;
+            }
+            else if (1 == myConfig.BackgroudType)
+            {
+                radioButton_85BG.Checked = true;
+            }
+            else if (2 == myConfig.BackgroudType)
+            {
+                radioButton_CurveFitBG.Checked = true;
+            }
+            else
+            {
+                radioButton_DefaultBG.Checked = true;
+                myConfig.BackgroudType = 0;
+            }
         }
 
         private void button_Ok_Click(object sender, EventArgs e)
@@ -37,43 +82,45 @@ namespace XRD_Tool
             {
                 if (radioButton_PearsonVII.Checked)
                 {
-                    CurveFitFunctionIndex = 0;
+                    myConfig.FunctionIndex = 0;
                 }
                 else if (radioButton_PearsonVIIJade.Checked)
                 {
-                    CurveFitFunctionIndex = 1;
+                    myConfig.FunctionIndex = 1;
                 }
                 else if (radioButton_PearsonVIIJade3Step.Checked)
                 {
-                    CurveFitFunctionIndex = 2;
+                    myConfig.FunctionIndex = 2;
                 }
                 else
                 {
-                    CurveFitFunctionIndex = 0;
+                    myConfig.FunctionIndex = 0;
                 }
 
-                if (CustomExpEnabled)
+                if (1 == myConfig.CustomExpEnabled)
                 {
-                    PearsonExponent = Convert.ToDouble(textBox_Exp.Text);
-                    PearsonSkewness = Convert.ToDouble(textBox_S.Text);
+                    myConfig.n = Convert.ToDouble(textBox_Exp.Text);
+                    myConfig.s = Convert.ToDouble(textBox_S.Text);
                 }
 
                 if (radioButton_DefaultBG.Checked)
                 {
-                    BackgroudType = 0;
+                    myConfig.BackgroudType = 0;
                 }
                 else if (radioButton_85BG.Checked)
                 {
-                    BackgroudType = 1;
+                    myConfig.BackgroudType = 1;
                 }
                 else if (radioButton_CurveFitBG.Checked)
                 {
-                    BackgroudType = 2;
+                    myConfig.BackgroudType = 2;
                 }
                 else
                 {
-                    BackgroudType = 0;
+                    myConfig.BackgroudType = 0;
                 }
+
+                myConfig.SavePearson();
 
                 this.Hide();
             }
@@ -92,7 +139,7 @@ namespace XRD_Tool
         {
             if (checkBox_CustomExp.Checked)
             {
-                CustomExpEnabled = true;
+                myConfig.CustomExpEnabled = 1;
 
                 label_Exp.Visible = true;
                 label_S.Visible = true;
@@ -101,7 +148,7 @@ namespace XRD_Tool
             }
             else
             {
-                CustomExpEnabled = false;
+                myConfig.CustomExpEnabled = 0;
 
                 label_Exp.Visible = false;
                 label_S.Visible = false;

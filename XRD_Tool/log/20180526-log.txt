@@ -1,0 +1,693 @@
+[2018-05-26 13:54:01 002] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 C:\gang-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:02:15 614] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 C:\gang-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:05:03 406] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 C:\gang-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:07:10 378] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 C:\gang-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:26:05 353] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 C:\gang-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:38:44 467] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:38:44 545] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:38:45 295] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\?-15-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:38:46 061] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:38:46 842] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\?-30-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:38:47 842] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:38:48 889] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\?-45-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:50:11 288] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:50:11 413] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:50:12 141] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:50:12 931] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:50:13 603] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:50:14 259] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:50:14 306] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 14:55:06 992] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:01:01 760] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:04:20 615] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:05:55 616] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:18:30 272] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:18:31 069] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:18:31 871] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:18:31 949] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:18:32 730] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:18:33 417] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:18:33 496] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:19:08 507] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:19:09 255] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:19:09 963] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:19:10 041] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:19:10 119] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:19:10 820] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:19:10 885] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:21:48 067] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:21:48 145] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:21:48 899] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:21:49 649] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:27:51 959] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:28:47 855] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:29:22 303] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:29:28 231] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:33:22 789] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:33:22 789] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 15:33:23 568] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:33:23 568] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 15:33:24 364] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:33:24 364] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 15:33:25 177] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:33:25 177] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 15:34:31 461] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:34:31 461] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 15:34:32 977] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:34:32 977] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 15:34:33 912] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:34:33 912] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 15:34:34 708] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:34:34 708] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 15:37:44 677] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:37:44 677] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 15:37:44 756] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:37:44 756] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 15:37:45 525] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:37:45 525] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 15:37:46 257] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:37:46 257] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 15:44:10 724] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:44:10 724] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 15:44:11 492] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:44:11 492] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 15:44:12 234] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:44:12 234] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 15:44:12 964] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:44:12 964] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 15:44:40 783] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:44:40 783] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 15:45:28 926] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:45:28 926] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 15:45:29 712] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:45:29 712] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 15:45:30 469] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:45:30 469] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 15:45:31 201] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:45:31 201] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 15:48:30 631] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:48:30 631] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 15:48:31 372] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:48:31 372] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 15:48:32 157] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:48:32 157] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 15:48:32 933] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 15:48:32 933] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 16:03:20 830] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:03:20 830] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 16:03:23 404] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:03:23 404] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 16:03:24 099] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:03:24 099] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 16:03:24 938] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:03:24 938] Python Result: [0,0,0,0,0]
+
+
+[2018-05-26 16:05:53 056] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:05:53 056] Python Result: [154.952263906577,1095.42985067958,4.1653318420087,1.5,4.16533184200867]
+
+
+[2018-05-26 16:05:53 762] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:05:53 762] Python Result: [155.051359560742,1012.99065828562,4.26714992272952,1.5,4.26714992272949]
+
+
+[2018-05-26 16:05:54 490] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:05:54 490] Python Result: [155.307785827193,876.16831041714,4.50679777097281,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:05:55 219] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:05:55 219] Python Result: [155.683321325242,764.90347601538,4.82295392197489,1.5,4.82295392197489]
+
+
+[2018-05-26 16:07:21 062] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:21 062] Python Result: [154.952263906577,1095.42985067958,4.1653318420087,1.5,4.16533184200867]
+
+
+[2018-05-26 16:07:21 761] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:21 761] Python Result: [155.051359560742,1012.99065828562,4.26714992272952,1.5,4.26714992272949]
+
+
+[2018-05-26 16:07:22 445] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:22 445] Python Result: [155.307785827193,876.16831041714,4.50679777097281,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:07:23 109] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:23 109] Python Result: [155.683321325242,764.90347601538,4.82295392197489,1.5,4.82295392197489]
+
+
+[2018-05-26 16:07:38 396] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:38 396] Python Result: [154.952263906577,1095.42985067958,4.1653318420087,1.5,4.16533184200867]
+
+
+[2018-05-26 16:07:39 094] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:39 094] Python Result: [155.051359560742,1012.99065828562,4.26714992272952,1.5,4.26714992272949]
+
+
+[2018-05-26 16:07:39 800] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:39 800] Python Result: [155.307785827193,876.16831041714,4.50679777097281,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:07:40 489] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:07:40 489] Python Result: [155.683321325242,764.90347601538,4.82295392197489,1.5,4.82295392197489]
+
+
+[2018-05-26 16:10:10 890] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:10 890] Python Result: [154.952263906577,1095.42985067958,4.1653318420087,1.5,4.16533184200867]
+
+
+[2018-05-26 16:10:11 621] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:11 621] Python Result: [155.051359560742,1012.99065828562,4.26714992272952,1.5,4.26714992272949]
+
+
+[2018-05-26 16:10:12 350] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:12 350] Python Result: [155.307785827193,876.16831041714,4.50679777097281,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:10:13 092] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:13 092] Python Result: [155.683321325242,764.90347601538,4.82295392197489,1.5,4.82295392197489]
+
+
+[2018-05-26 16:10:18 948] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:18 948] Python Result: [154.952263906577,1095.42985067958,4.1653318420087,1.5,4.16533184200867]
+
+
+[2018-05-26 16:10:19 700] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:19 700] Python Result: [155.051359560742,1012.99065828562,4.26714992272952,1.5,4.26714992272949]
+
+
+[2018-05-26 16:10:20 427] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:20 427] Python Result: [155.307785827193,876.16831041714,4.50679777097281,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:10:21 195] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:10:21 195] Python Result: [155.683321325242,764.90347601538,4.82295392197489,1.5,4.82295392197489]
+
+
+[2018-05-26 16:22:54 873] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:22:54 873] Python Result: [154.952263906579,1095.42985049487,4.16533184282119,1.5,0]
+
+
+[2018-05-26 16:22:55 608] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:22:55 608] Python Result: [155.051359560761,1012.99065832237,4.26714992238086,1.5,0]
+
+
+[2018-05-26 16:22:56 318] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:22:56 318] Python Result: [155.307785827143,876.168310364908,-4.50679777152215,1.5,0]
+
+
+[2018-05-26 16:22:57 141] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:22:57 141] Python Result: [155.683321325239,764.90347597092,4.82295392230442,1.5,0]
+
+
+[2018-05-26 16:23:24 231] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:23:24 231] Python Result: [154.952263906579,1095.42985049487,4.16533184282119,1.5,0]
+
+
+[2018-05-26 16:23:24 906] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:23:24 906] Python Result: [155.051359560761,1012.99065832237,4.26714992238086,1.5,0]
+
+
+[2018-05-26 16:23:25 638] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:23:25 638] Python Result: [155.307785827143,876.168310364908,-4.50679777152215,1.5,0]
+
+
+[2018-05-26 16:23:26 365] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 4 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:23:26 365] Python Result: [155.683321325239,764.90347597092,4.82295392230442,1.5,0]
+
+
+[2018-05-26 16:24:38 144] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:24:38 144] Python Result: [154.952263906579,1095.42985049487,4.16533184282119,1.5,0]
+
+
+[2018-05-26 16:24:38 862] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:24:38 862] Python Result: [155.051359560761,1012.99065832237,4.26714992238086,1.5,0]
+
+
+[2018-05-26 16:24:39 606] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:24:39 606] Python Result: [155.307785827143,876.168310364908,-4.50679777152215,1.5,0]
+
+
+[2018-05-26 16:24:40 333] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:24:40 333] Python Result: [155.683321325239,764.90347597092,4.82295392230442,1.5,0]
+
+
+[2018-05-26 16:27:21 891] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:27:21 891] Python Result: [154.952263906577,1095.42985067958,4.1653318420087,1.5,4.16533184200867]
+
+
+[2018-05-26 16:27:22 584] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:27:22 584] Python Result: [155.051359560742,1012.99065828562,4.26714992272952,1.5,4.26714992272949]
+
+
+[2018-05-26 16:27:23 279] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:27:23 279] Python Result: [155.307785827193,876.16831041714,4.50679777097281,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:27:24 000] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\?-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:27:24 000] Python Result: [155.683321325242,764.90347601538,4.82295392197489,1.5,4.82295392197489]
+
+
+[2018-05-26 16:31:29 278] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-0.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:31:29 278] Python Result: [154.952263906577,1095.42985067958,4.1653318420087,1.5,4.16533184200867]
+
+
+[2018-05-26 16:31:29 966] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-15.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:31:29 966] Python Result: [155.051359560742,1012.99065828562,4.26714992272952,1.5,4.26714992272949]
+
+
+[2018-05-26 16:31:30 693] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-30.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:31:30 693] Python Result: [155.307785827193,876.16831041714,4.50679777097281,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:31:31 387] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-45.txt 3 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:31:31 387] Python Result: [155.683321325242,764.90347601538,4.82295392197489,1.5,4.82295392197489]
+
+
+[2018-05-26 16:33:27 988] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:33:27 988] Python Result: [154.920902539856,1095.42985067958,3.12730364119921,1.5,4.16533184200867]
+
+
+[2018-05-26 16:33:28 725] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:33:28 725] Python Result: [155.020025712167,1012.99065828562,3.17776610578801,1.5,4.26714992272949]
+
+
+[2018-05-26 16:33:29 450] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:33:29 450] Python Result: [155.272844071714,876.16831041714,3.3302459175386,1.5,-4.5067977709728]
+
+
+[2018-05-26 16:33:30 184] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:33:30 184] Python Result: [155.640100005946,764.90347601538,3.58277347607833,1.5,4.82295392197489]
+
+
+[2018-05-26 16:35:08 033] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:35:08 033] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 16:35:08 726] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:35:08 726] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 16:35:09 465] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:35:09 465] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 16:35:10 169] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180505.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:35:10 169] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 16:37:32 646] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:37:32 646] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 16:37:33 388] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:37:33 388] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 16:37:34 130] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:37:34 130] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 16:37:34 823] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:37:34 823] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 16:38:34 318] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:38:34 318] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 16:38:35 117] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:38:35 117] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 16:38:35 852] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:38:35 852] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 16:38:36 637] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:38:36 637] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 16:39:12 081] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:39:12 081] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 16:39:12 829] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:39:12 829] Python Result: [155.020025712167,1141.38817177944,3.17776610578801,0.558037755307905,3.17776610578799]
+
+
+[2018-05-26 16:39:13 529] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:39:13 529] Python Result: [155.272844071714,990.764219971363,3.3302459175386,0.546775790748398,-3.3302459175386]
+
+
+[2018-05-26 16:39:14 227] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\txts\멀-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:39:14 227] Python Result: [155.640100005946,863.240523545609,3.58277347607833,0.551526987935293,-3.58277347607834]
+
+
+[2018-05-26 16:41:00 847] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\멀-0.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:41:00 847] Python Result: [154.920902539856,1229.90955528805,3.12730364119921,0.568273543942401,3.1273036411992]
+
+
+[2018-05-26 16:41:01 544] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\멀-15-15.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:41:01 544] Python Result: [155.016017237,1283.7224505071,3.15072073822142,0.53800566198808,3.15072073822145]
+
+
+[2018-05-26 16:41:02 255] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\멀-30-30.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:41:02 255] Python Result: [155.277757014022,1172.98162010069,3.35755750007945,0.531725127577825,-3.35755750007945]
+
+
+[2018-05-26 16:41:02 964] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\01.RU\20180326\data2\멀-45-45.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+
+[2018-05-26 16:41:02 964] Python Result: [155.594050925049,1111.49233004981,3.57595187543711,0.534233111615385,3.5759518754371]
+
+

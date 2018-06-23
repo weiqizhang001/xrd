@@ -24,6 +24,7 @@ namespace XRD_Tool
         public IniEdit iniE = new IniEdit();
 
         DataTable dtJG = new DataTable();
+        DataTable dtprint;
 
         public byte deviceStateBackup;
 
@@ -39,13 +40,17 @@ namespace XRD_Tool
         public double[] PsiStopAngle;
         public double[] PhiSpeed;
         public double[] MeasureTime;
-
-        public int ChartRealTimeShowIndex = 0;  // 实时绘图的当前数据的行号的索引
+        /// <summary>
+        /// 实时绘图的当前数据的行号的索引
+        /// </summary>
+        public int ChartRealTimeShowIndex = 0;  
         public volatile int MeasureIndex_Psi = 0; // Psi索引
         public volatile int GroupIndex_Psi = 0; // Psi索引
         public volatile bool MeasureStopFlag = false;   // 测量停止flag
         public volatile bool RecvDataFinishFlag = false; // 单组测量接收数据完成flag
         public System.Timers.Timer timerUartRecv;
+
+     
 
         private System.Timers.Timer timerHighVoltage_10min; // 11.测量完成后，如果10分钟没有对高压进行操作，则关闭高压SKM0 0
         public Color[] colorArray = { Color.Blue, Color.Orange, Color.Red, Color.LightBlue, Color.Green, Color.Purple, Color.Pink };
@@ -109,9 +114,10 @@ namespace XRD_Tool
                 myApi.MeasureMethod = myConfig.MeasureMethod;
 
                 dtJG.Columns.Add("序号");
-                dtJG.Columns.Add("Psi角度");
-                dtJG.Columns.Add("Phi角度");
+                dtJG.Columns.Add("α角度");
+                dtJG.Columns.Add("β角度");
                 dtJG.Columns.Add("强度");
+                dtprint = dtJG.Clone();
                 dataGridView1.DataSource = dtJG;
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 iniE.IniEditConfig("ZG_Config.ini");//建立连接
@@ -159,7 +165,27 @@ namespace XRD_Tool
             }
         }
 
-        
+
+        /// <summary>
+        /// 更新气泡
+        /// </summary>
+        public void BindTip()
+        {
+            toolTip1.SetToolTip(textBoxSampleName, textBoxSampleName.Text);
+            toolTip1.SetToolTip(comboBoxScanMethod, comboBoxScanMethod.Text);
+            toolTip1.SetToolTip(textBoxSampleSn, textBoxSampleSn.Text);
+            toolTip1.SetToolTip(textBoxFaceExp, textBoxFaceExp.Text);
+            toolTip1.SetToolTip(textBoxPeakDegree, textBoxPeakDegree.Text);
+            toolTip1.SetToolTip(textBoxTubeVoltage, textBoxTubeVoltage.Text);
+            toolTip1.SetToolTip(textBoxTubeCurrent, textBoxTubeCurrent.Text);
+            toolTip1.SetToolTip(textBoxBM, textBoxBM.Text);
+            toolTip1.SetToolTip(textBoxPsiStep, textBoxPsiStep.Text);
+            toolTip1.SetToolTip(textBoxPsiStartAngle, textBoxPsiStartAngle.Text);
+            toolTip1.SetToolTip(textBoxPsiStopAngle, textBoxPsiStopAngle.Text);
+            toolTip1.SetToolTip(textBoxPhiSpeed, textBoxPhiSpeed.Text);
+            toolTip1.SetToolTip(textBoxMeasureTime, textBoxMeasureTime.Text);
+
+        }
 
         private void checkBoxExpert_CheckedChanged(object sender, EventArgs e)
         {
@@ -297,7 +323,7 @@ namespace XRD_Tool
                     myParentForm.tableLayoutPanel2.Enabled = false;
 
                     ChartRealTimeShowIndex = 0;
-                    chartRealTime.Series["射线强度"].Points.Clear();// 清除实时绘图
+                    //chartRealTime.Series["射线强度"].Points.Clear();// 清除实时绘图
                     dataGridViewClear(); // 清除数据显示
 
                     MeasureIndex_Psi = 0;
@@ -320,11 +346,11 @@ namespace XRD_Tool
                     PhiSpeed = Array.ConvertAll(textBoxPhiSpeed.Text.Split(','), double.Parse);
                     MeasureTime = Array.ConvertAll(textBoxMeasureTime.Text.Split(','), double.Parse);
 
-                    // debug
-                    for (int i = 0; i < PsiStopAngle.Length; i++)
-                    {
-                        PsiStopAngle[i] = 10;
-                    }
+                    //// debug
+                    //for (int i = 0; i < PsiStopAngle.Length; i++)
+                    //{
+                    //    PsiStopAngle[i] = 10;
+                    //}
                 }
 
 
@@ -380,6 +406,12 @@ namespace XRD_Tool
                 dr[2] = _Phi.ToString();//phi
                 dr[3] = _QD.ToString();
                 dtJG.Rows.Add(dr);
+                DataRow dr1 = dtprint.NewRow();
+                dr1[0] = dtJG.Rows.Count + 1;//序号
+                dr1[1] = _Psi.ToString();//PSI
+                dr1[2] = _Phi.ToString();//phi
+                dr1[3] = _QD.ToString();
+                dtprint.Rows.Add(dr1);
 
             
 
@@ -607,7 +639,7 @@ namespace XRD_Tool
             {
                 for (int i = 0; i < textBoxPsiStopAngle.Text.Split(',').Length; i++)//起始角度 终止角度  0~70  并且起始小于终止
                 {
-                    if (0 <= Convert.ToDouble(textBoxPsiStartAngle.Text.Split(',')[i]) && Convert.ToDouble(textBoxPsiStartAngle.Text.Split(',')[i]) < Convert.ToDouble(textBoxPsiStopAngle.Text.Split(',')[i]) && Convert.ToDouble(textBoxPsiStopAngle.Text.Split(',')[i]) >= 70)
+                    if (0 <= Convert.ToDouble(textBoxPsiStartAngle.Text.Split(',')[i]) && Convert.ToDouble(textBoxPsiStartAngle.Text.Split(',')[i]) < Convert.ToDouble(textBoxPsiStopAngle.Text.Split(',')[i]) && Convert.ToDouble(textBoxPsiStopAngle.Text.Split(',')[i]) <= 70)
                     {
 
                     }
@@ -783,6 +815,7 @@ namespace XRD_Tool
                     {
                         timerUartRecv.Enabled = false;
 
+                        Thread.Sleep(5000);
                         myApi.SendGetHighVoltage();
                         timerUartRecv.Interval = 1000 * 5;
                         timerUartRecv.Enabled = true;
@@ -867,13 +900,14 @@ namespace XRD_Tool
                         myApi.RecvDataCount = 0;
                         myApi.RecvDataTable.Rows.Clear();
                         ChartRealTimeShowIndex = 0;
-                        myApi.TotalDataCount = (int)(360 / PhiSpeed[GroupIndex_Psi]);
+                        myApi.TotalDataCount = (int)(360 / (PhiSpeed[GroupIndex_Psi] * MeasureTime[GroupIndex_Psi]));
                         myUart.Pack_Debug_out(null, "[Texture] totalcount=" + myApi.TotalDataCount.ToString());
                         myApi.SSC_RecvDataReadIndex = 0;
                         myApi.SSC_RecvDataWriteIndex = 0;
                         myApi.SSC_AnalyzeDataCount = 0;
 
-                        myApi.RecvDataTableSaveFileStart(myApi.AnglePsi[MeasureIndex_Psi], MeasureIndex_Psi);
+                        //myApi.RecvDataTableSaveFileStart(myApi.AnglePsi[MeasureIndex_Psi], MeasureIndex_Psi);
+                        //myApi.Texture_SaveFileStart(FaceExp[GroupIndex_Psi], GroupIndex_Psi, BM[GroupIndex_Psi]);
 
                         ChartRealTimeInit();
                     }
@@ -884,7 +918,8 @@ namespace XRD_Tool
                     timerUartRecv.Enabled = false;
                     myApi.CSB_RecvDataAnalyze(text);
                     myApi.RecvDataTableUpdate(myApi.SSC_AnalyzeDataArray, myApi.SSC_AnalyzeDataCount);
-                    myApi.RecvDataTableSaveFileProc(myApi.SSC_AnalyzeDataArray, myApi.SSC_AnalyzeDataCount);
+
+                    //myApi.RecvDataTableSaveFileProc(myApi.SSC_AnalyzeDataArray, myApi.SSC_AnalyzeDataCount);
 
                     myApi.RecvDataCount += (myApi.SSC_AnalyzeDataCount / 21);
                     myUart.Pack_Debug_out(null, "[Texture] analyzecount=" + (myApi.SSC_AnalyzeDataCount / 21).ToString() + "totalrecvcount=" + myApi.RecvDataCount.ToString());
@@ -898,7 +933,8 @@ namespace XRD_Tool
                         myApi.SSC_RecvDataReadIndex = 0;
                         myApi.SSC_RecvDataWriteIndex = 0;
 
-                        myApi.RecvDataTableSaveFileEnd();
+                        //myApi.RecvDataTableSaveFileEnd();
+                        //myApi.Texture_SaveFileEnd();
                         RecvDataFinishFlag = true;
                     }
                 }
@@ -936,7 +972,7 @@ namespace XRD_Tool
                     myParentForm.statusBar_HighVoltageUpdate(myApi.recvVoltage, myApi.recvCurrent);
 
                     ChartRealTimeShowIndex = 0;
-                    chartRealTime.Series["射线强度"].Points.Clear();
+                    //chartRealTime.Series["射线强度"].Points.Clear();
 
                     double xMin = 0;
                     double xMax = 360;
@@ -1041,16 +1077,20 @@ namespace XRD_Tool
         {
             try
             {
+
                 myUart.Pack_Debug_out(null, "Chart RealTime update" + "[start @" + ChartRealTimeShowIndex.ToString() + "rowsCount=" + myApi.RecvDataTable.Rows.Count.ToString() + "]");
 
                 for (int i = ChartRealTimeShowIndex; i < myApi.RecvDataTable.Rows.Count; i++)
                 {
                     double x = Convert.ToDouble(myApi.RecvDataTable.Rows[i][0]);
-                    int y = Convert.ToInt32(myApi.RecvDataTable.Rows[i][1]);
+                    int y = Convert.ToInt32(myApi.RecvDataTable.Rows[i][1]) + MeasureIndex_Psi * 200;//Y轴偏移200
 
-                    mySeries.Points.AddXY(x, y);
                     // 更新数据结果显示
                     Binding(myApi.AnglePsi[MeasureIndex_Psi], x, (double)y);
+
+                    mySeries.Points.AddXY(x, y);
+                    // 保存到文件
+                    //myApi.Texture_SaveFileProc(y);
                 }
 
                 ChartRealTimeShowIndex = myApi.RecvDataTable.Rows.Count;
@@ -1063,9 +1103,12 @@ namespace XRD_Tool
 
         public void PhiMeasureFinish()
         {
+            myUart.Pack_Debug_out(null, "[Texture] PhiMeasureFinish,Psi index=" + MeasureIndex_Psi.ToString() + "total=" + myApi.AnglePsi.Length.ToString() + "Group index=" + GroupIndex_Psi.ToString() + "total=" + PsiStartAngle.Length.ToString());
+
             if (MeasureIndex_Psi < myApi.AnglePsi.Length - 1)
             {
                 MeasureIndex_Psi++;
+                myUart.Pack_Debug_out(null, "[Texture] next Psi,index=" + MeasureIndex_Psi.ToString());
 
                 myApi.SendAngleA(myApi.AnglePsi[MeasureIndex_Psi]);
                 timerUartRecv.Interval = 1000 * 10;
@@ -1073,16 +1116,21 @@ namespace XRD_Tool
             }
             else
             {
+                chartRealTime.Series.Clear();
+                myApi.SaveTxt(dtprint, textBoxSampleName.Text, SampleSn[GroupIndex_Psi].ToString(), FaceExp[GroupIndex_Psi].ToString(), BM[GroupIndex_Psi].ToString());
+                dtprint.Clear();
                 MeasureIndex_Psi = 0;
                 if ((GroupIndex_Psi < PsiStartAngle.Length - 1)
                     && (checkBoxExpert.Checked == true))
                 {
                     GroupIndex_Psi++;
-
+                    myUart.Pack_Debug_out(null, "[Texture] next Group, index=" + GroupIndex_Psi.ToString());
                     ScanSetupStart();
                 }
                 else
 	            {
+                    myUart.Pack_Debug_out(null, "[Texture] measure end");
+
                     myApi.SendCloseShutter();
                     timerUartRecv.Interval = 1000 * 5;
                     timerUartRecv.Enabled = true;
@@ -1191,6 +1239,18 @@ namespace XRD_Tool
         private void buttonStop_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxSampleName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                BindTip();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
     }

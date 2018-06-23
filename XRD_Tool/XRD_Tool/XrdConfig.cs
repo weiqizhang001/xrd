@@ -112,6 +112,7 @@ namespace XRD_Tool
         public string SectionDevInit = "DeviceInit";
         public string SectionSDDSetting = "MeasureSettings";
         public string SectionTextureSetting = "TextureSettings";
+        public string SectionPearson = "Pearson";
 
         // login
         public string UserName = "administrator";
@@ -144,8 +145,8 @@ namespace XRD_Tool
         public string[] SampleName = { "SDD_sample_name", "LDA_sample_name" };
         public string[] SampleSn = { "01234", "56789" };
         public int MeasureMethod = 0;      // 0=SDD侧倾法，1=SDD同倾法，2=LDA侧倾法，3=LDA同倾法
-        public double[] StartDegree = { 150.0, 150.0, 150.0, 150.0 };
-        public double[] StopDegree = { 150.0, 150.0, 150.0, 150.0 };
+        public double[] StartDegree = { 150.0, 150.0, 140.0, 140.0 };
+        public double[] StopDegree = { 150.0, 150.0, 24.0, 24.0 };
         public double[] MeasureStep = { 0.02, 0.02, 0.02, 0.02 };
         public double[] MeasureTime = { 0.05, 0.05, 0.05, 0.05 };
         public double[] TubeVoltage = { 25.0, 25.0, 25.0, 25.0 };
@@ -207,6 +208,14 @@ namespace XRD_Tool
         public double[] MeasureTimeTxt = { 1, 0.5, 1 };
         public int MeasureMethodTxt;    //0=normal，1=expert
 
+
+        // Pearson
+        public int FunctionIndex = 0;   // 0:PearsonVII 1：PearsonVII参考Jade6 2：PearsonVII参考Jade6 with 3 steps
+        public int CustomExpEnabled = 0;       // 1: 指定exponent  0: 不指定exponent
+        public double n = 1.5;
+        public double s = 0.0;
+        public int BackgroudType = 0;           // 0:不扣除背景 1：85%扣除背景 2：曲线水平拟合扣除背景
+
         public XrdConfig()
         {
             // 获取应用程序的当前工作目录。
@@ -237,6 +246,8 @@ namespace XRD_Tool
                     SaveDeviceInit();
 
                     SaveMeasureSettings();
+
+                    SavePearson();
                 }
                 else
                 {
@@ -247,6 +258,8 @@ namespace XRD_Tool
                     ReadDeviceInit();
 
                     ReadMeasureSettings();
+
+                    ReadPearson();
                 }
             }
             catch (Exception ex)
@@ -555,6 +568,49 @@ namespace XRD_Tool
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        public void SavePearson()
+        {
+            try
+            {
+                IniHelper.INIWriteValue(IniFileName, SectionPearson, "FunctionIndex", FunctionIndex.ToString());
+                IniHelper.INIWriteValue(IniFileName, SectionPearson, "CustomExpEnabled", CustomExpEnabled.ToString());
+                IniHelper.INIWriteValue(IniFileName, SectionPearson, "n", n.ToString());
+                IniHelper.INIWriteValue(IniFileName, SectionPearson, "s", s.ToString());
+                IniHelper.INIWriteValue(IniFileName, SectionPearson, "BackgroudType", BackgroudType.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        public void ReadPearson()
+        {
+            try
+            {
+                if (File.Exists(IniFileName))
+                {
+                    FunctionIndex = Convert.ToInt32(IniHelper.INIGetStringValue(IniFileName, SectionPearson, "FunctionIndex", "0"));
+                    CustomExpEnabled = Convert.ToInt32(IniHelper.INIGetStringValue(IniFileName, SectionPearson, "CustomExpEnabled", "0"));
+                    n = Convert.ToDouble(IniHelper.INIGetStringValue(IniFileName, SectionPearson, "n", "0"));
+                    s = Convert.ToDouble(IniHelper.INIGetStringValue(IniFileName, SectionPearson, "s", "0"));
+                    BackgroudType = Convert.ToInt32(IniHelper.INIGetStringValue(IniFileName, SectionPearson, "BackgroudType", "0"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+
+
+
+
+
+
+
 
     }
 

@@ -5,14 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace XRD_Tool
 {
 
-    public class IniEdit
+    public class IniEdit:IniHelper
     {
         public string IniFileName="";
         public string FilieName = "";
+        IniHelper inihe = new IniHelper();
 
 
         /// <summary>
@@ -57,7 +59,61 @@ namespace XRD_Tool
             }
             
         }
+        /// <summary>
+        /// 范围文件内的所有section节点
+        /// </summary>
+        /// <returns></returns>
+        public string[] GetSections()
+        {
+            if (IniFileName != null && IniFileName != "")
+            {
+                return inihe.INIGetAllSectionNames(IniFileName);
+            }
+            else
+            {
+                return null;
+            }
+            
+        }
 
+        // <summary>  
+        /// 在INI文件中，删除指定的节点。  
+        /// </summary>  
+        /// <param name="iniFile">INI文件</param>  
+        /// <param name="section">节点</param>  
+        /// <returns>操作是否成功</returns>  
+        public bool DeleteSection(string section)
+        {
+            if (IniFileName != null && IniFileName != "")
+            {
+                return inihe.INIDeleteSection(IniFileName, section);
+            }
+            else
+            {
+                return false;
+            }
+
+            
+        }
+
+        /// <summary>  
+        /// 在INI文件中，将指定的键值对写到指定的节点，如果已经存在则替换  
+        /// </summary>  
+        /// <param name="iniFile">INI文件</param>  
+        /// <param name="section">节点，如果不存在此节点，则创建此节点</param>  
+        /// <param name="items">键值对，多个用\0分隔,形如key1=value1\0key2=value2</param>  
+        /// <returns></returns>  
+        public bool INIWriteItems(string section, string items)
+        {
+            if (IniFileName != null && IniFileName != "")
+            {
+                return inihe.INIWriteItems(IniFileName, section, items);
+            }
+            else
+            {
+                return false;
+            }
+        }
         /// <summary>
         /// 读取value
         /// </summary>

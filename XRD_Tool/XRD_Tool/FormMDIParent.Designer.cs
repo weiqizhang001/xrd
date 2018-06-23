@@ -44,7 +44,6 @@
             this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonExit = new System.Windows.Forms.Button();
-            this.buttonUser = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabelHello = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabelBlank = new System.Windows.Forms.ToolStripStatusLabel();
@@ -71,20 +70,19 @@
             this.tableLayoutPanel1.Controls.Add(this.buttonShortHelp, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.buttonShortAbout, 0, 7);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 62);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 50);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 9;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(193, 849);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(145, 656);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonShortCalc
@@ -97,10 +95,9 @@
             this.buttonShortCalc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShortCalc.Image = global::XRD_Tool.Properties.Resources.应力计算1态;
             this.buttonShortCalc.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonShortCalc.Location = new System.Drawing.Point(4, 73);
-            this.buttonShortCalc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonShortCalc.Location = new System.Drawing.Point(3, 58);
             this.buttonShortCalc.Name = "buttonShortCalc";
-            this.buttonShortCalc.Size = new System.Drawing.Size(185, 61);
+            this.buttonShortCalc.Size = new System.Drawing.Size(139, 49);
             this.buttonShortCalc.TabIndex = 2;
             this.buttonShortCalc.UseVisualStyleBackColor = false;
             this.buttonShortCalc.Click += new System.EventHandler(this.buttonShortOpen_Click);
@@ -115,10 +112,9 @@
             this.buttonShortInit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShortInit.Image = global::XRD_Tool.Properties.Resources.初始化1态;
             this.buttonShortInit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonShortInit.Location = new System.Drawing.Point(4, 142);
-            this.buttonShortInit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonShortInit.Location = new System.Drawing.Point(3, 113);
             this.buttonShortInit.Name = "buttonShortInit";
-            this.buttonShortInit.Size = new System.Drawing.Size(185, 61);
+            this.buttonShortInit.Size = new System.Drawing.Size(139, 49);
             this.buttonShortInit.TabIndex = 4;
             this.buttonShortInit.UseVisualStyleBackColor = false;
             this.buttonShortInit.Click += new System.EventHandler(this.buttonShortInit_Click);
@@ -133,10 +129,9 @@
             this.buttonShortHighVol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShortHighVol.Image = global::XRD_Tool.Properties.Resources.高压开关1态;
             this.buttonShortHighVol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonShortHighVol.Location = new System.Drawing.Point(4, 211);
-            this.buttonShortHighVol.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonShortHighVol.Location = new System.Drawing.Point(3, 168);
             this.buttonShortHighVol.Name = "buttonShortHighVol";
-            this.buttonShortHighVol.Size = new System.Drawing.Size(185, 61);
+            this.buttonShortHighVol.Size = new System.Drawing.Size(139, 49);
             this.buttonShortHighVol.TabIndex = 5;
             this.buttonShortHighVol.UseVisualStyleBackColor = false;
             this.buttonShortHighVol.Click += new System.EventHandler(this.buttonShortHighVol_Click);
@@ -151,10 +146,9 @@
             this.buttonShortFive.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShortFive.Image = global::XRD_Tool.Properties.Resources.五轴移动1态;
             this.buttonShortFive.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonShortFive.Location = new System.Drawing.Point(4, 280);
-            this.buttonShortFive.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonShortFive.Location = new System.Drawing.Point(3, 223);
             this.buttonShortFive.Name = "buttonShortFive";
-            this.buttonShortFive.Size = new System.Drawing.Size(185, 61);
+            this.buttonShortFive.Size = new System.Drawing.Size(139, 49);
             this.buttonShortFive.TabIndex = 6;
             this.buttonShortFive.UseVisualStyleBackColor = false;
             this.buttonShortFive.Click += new System.EventHandler(this.buttonShortFive_Click);
@@ -169,10 +163,9 @@
             this.buttonShortFocus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShortFocus.Image = global::XRD_Tool.Properties.Resources.自动对焦1态;
             this.buttonShortFocus.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonShortFocus.Location = new System.Drawing.Point(4, 349);
-            this.buttonShortFocus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonShortFocus.Location = new System.Drawing.Point(3, 278);
             this.buttonShortFocus.Name = "buttonShortFocus";
-            this.buttonShortFocus.Size = new System.Drawing.Size(185, 61);
+            this.buttonShortFocus.Size = new System.Drawing.Size(139, 49);
             this.buttonShortFocus.TabIndex = 7;
             this.buttonShortFocus.UseVisualStyleBackColor = false;
             this.buttonShortFocus.Click += new System.EventHandler(this.buttonShortFocus_Click);
@@ -187,10 +180,9 @@
             this.buttonShortHelp.FlatAppearance.BorderSize = 0;
             this.buttonShortHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShortHelp.Image = global::XRD_Tool.Properties.Resources.帮助1态;
-            this.buttonShortHelp.Location = new System.Drawing.Point(4, 418);
-            this.buttonShortHelp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonShortHelp.Location = new System.Drawing.Point(3, 333);
             this.buttonShortHelp.Name = "buttonShortHelp";
-            this.buttonShortHelp.Size = new System.Drawing.Size(185, 61);
+            this.buttonShortHelp.Size = new System.Drawing.Size(139, 49);
             this.buttonShortHelp.TabIndex = 8;
             this.buttonShortHelp.UseVisualStyleBackColor = false;
             this.buttonShortHelp.Click += new System.EventHandler(this.buttonShortHelp_Click);
@@ -204,10 +196,9 @@
             this.buttonShortAbout.FlatAppearance.BorderSize = 0;
             this.buttonShortAbout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonShortAbout.Image = global::XRD_Tool.Properties.Resources.关于1态;
-            this.buttonShortAbout.Location = new System.Drawing.Point(4, 487);
-            this.buttonShortAbout.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonShortAbout.Location = new System.Drawing.Point(3, 388);
             this.buttonShortAbout.Name = "buttonShortAbout";
-            this.buttonShortAbout.Size = new System.Drawing.Size(185, 61);
+            this.buttonShortAbout.Size = new System.Drawing.Size(139, 49);
             this.buttonShortAbout.TabIndex = 9;
             this.buttonShortAbout.UseVisualStyleBackColor = false;
             this.buttonShortAbout.Click += new System.EventHandler(this.buttonShortAbout_Click);
@@ -220,10 +211,9 @@
             this.buttonMenuCtrl.FlatAppearance.BorderSize = 0;
             this.buttonMenuCtrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuCtrl.Image = global::XRD_Tool.Properties.Resources.控制应用1态;
-            this.buttonMenuCtrl.Location = new System.Drawing.Point(1350, 5);
-            this.buttonMenuCtrl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMenuCtrl.Location = new System.Drawing.Point(864, 4);
             this.buttonMenuCtrl.Name = "buttonMenuCtrl";
-            this.buttonMenuCtrl.Size = new System.Drawing.Size(185, 52);
+            this.buttonMenuCtrl.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuCtrl.TabIndex = 12;
             this.buttonMenuCtrl.UseVisualStyleBackColor = true;
             this.buttonMenuCtrl.Click += new System.EventHandler(this.buttonMenuCtrl_Click);
@@ -236,10 +226,9 @@
             this.buttonMenuMea.FlatAppearance.BorderSize = 0;
             this.buttonMenuMea.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuMea.Image = global::XRD_Tool.Properties.Resources.测量1态;
-            this.buttonMenuMea.Location = new System.Drawing.Point(768, 5);
-            this.buttonMenuMea.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMenuMea.Location = new System.Drawing.Point(426, 4);
             this.buttonMenuMea.Name = "buttonMenuMea";
-            this.buttonMenuMea.Size = new System.Drawing.Size(185, 52);
+            this.buttonMenuMea.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuMea.TabIndex = 10;
             this.buttonMenuMea.UseVisualStyleBackColor = false;
             this.buttonMenuMea.Click += new System.EventHandler(this.buttonMenuMea_Click);
@@ -251,10 +240,9 @@
             this.buttonMenuDev.FlatAppearance.BorderSize = 0;
             this.buttonMenuDev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuDev.Image = global::XRD_Tool.Properties.Resources.设置1态;
-            this.buttonMenuDev.Location = new System.Drawing.Point(962, 5);
-            this.buttonMenuDev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMenuDev.Location = new System.Drawing.Point(572, 4);
             this.buttonMenuDev.Name = "buttonMenuDev";
-            this.buttonMenuDev.Size = new System.Drawing.Size(185, 52);
+            this.buttonMenuDev.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuDev.TabIndex = 11;
             this.buttonMenuDev.UseVisualStyleBackColor = true;
             this.buttonMenuDev.Click += new System.EventHandler(this.buttonMenuDev_Click);
@@ -266,10 +254,9 @@
             this.buttonMenuTexture.FlatAppearance.BorderSize = 0;
             this.buttonMenuTexture.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMenuTexture.Image = global::XRD_Tool.Properties.Resources.织构测量_一态;
-            this.buttonMenuTexture.Location = new System.Drawing.Point(1156, 5);
-            this.buttonMenuTexture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMenuTexture.Location = new System.Drawing.Point(718, 4);
             this.buttonMenuTexture.Name = "buttonMenuTexture";
-            this.buttonMenuTexture.Size = new System.Drawing.Size(185, 52);
+            this.buttonMenuTexture.Size = new System.Drawing.Size(139, 42);
             this.buttonMenuTexture.TabIndex = 11;
             this.buttonMenuTexture.UseVisualStyleBackColor = true;
             this.buttonMenuTexture.Click += new System.EventHandler(this.buttonMenuTexture_Click);
@@ -287,25 +274,23 @@
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanel2.ColumnCount = 7;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 193F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
             this.tableLayoutPanel2.Controls.Add(this.buttonExit, 6, 0);
-            this.tableLayoutPanel2.Controls.Add(this.buttonUser, 5, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonMenuCtrl, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonMenuMea, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonMenuDev, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonMenuTexture, 3, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1800, 62);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1203, 50);
             this.tableLayoutPanel2.TabIndex = 14;
             // 
             // buttonExit
@@ -315,27 +300,12 @@
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExit.Image = global::XRD_Tool.Properties.Resources._002;
-            this.buttonExit.Location = new System.Drawing.Point(1686, 5);
-            this.buttonExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonExit.Location = new System.Drawing.Point(1117, 4);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(109, 52);
+            this.buttonExit.Size = new System.Drawing.Size(82, 42);
             this.buttonExit.TabIndex = 14;
             this.buttonExit.UseVisualStyleBackColor = true;
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
-            // 
-            // buttonUser
-            // 
-            this.buttonUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonUser.FlatAppearance.BorderSize = 0;
-            this.buttonUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonUser.Image = global::XRD_Tool.Properties.Resources._0011;
-            this.buttonUser.Location = new System.Drawing.Point(1544, 5);
-            this.buttonUser.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.buttonUser.Name = "buttonUser";
-            this.buttonUser.Size = new System.Drawing.Size(133, 52);
-            this.buttonUser.TabIndex = 13;
-            this.buttonUser.UseVisualStyleBackColor = true;
             // 
             // statusStrip1
             // 
@@ -345,61 +315,59 @@
             this.toolStripStatusLabelHighVoltage,
             this.toolStripStatusLabelMeasureStatus,
             this.toolStripStatusLabelCountDown});
-            this.statusStrip1.Location = new System.Drawing.Point(193, 882);
+            this.statusStrip1.Location = new System.Drawing.Point(145, 680);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(1607, 29);
+            this.statusStrip1.Size = new System.Drawing.Size(1058, 26);
             this.statusStrip1.TabIndex = 16;
             // 
             // toolStripStatusLabelHello
             // 
             this.toolStripStatusLabelHello.Name = "toolStripStatusLabelHello";
-            this.toolStripStatusLabelHello.Size = new System.Drawing.Size(236, 24);
+            this.toolStripStatusLabelHello.Size = new System.Drawing.Size(189, 21);
             this.toolStripStatusLabelHello.Text = "欢迎使用浩元仪器测量系统Ver1.0";
             // 
             // toolStripStatusLabelBlank
             // 
             this.toolStripStatusLabelBlank.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.toolStripStatusLabelBlank.Name = "toolStripStatusLabelBlank";
-            this.toolStripStatusLabelBlank.Size = new System.Drawing.Size(1085, 24);
+            this.toolStripStatusLabelBlank.Size = new System.Drawing.Size(636, 21);
             this.toolStripStatusLabelBlank.Spring = true;
             // 
             // toolStripStatusLabelHighVoltage
             // 
             this.toolStripStatusLabelHighVoltage.Name = "toolStripStatusLabelHighVoltage";
-            this.toolStripStatusLabelHighVoltage.Size = new System.Drawing.Size(193, 24);
+            this.toolStripStatusLabelHighVoltage.Size = new System.Drawing.Size(158, 21);
             this.toolStripStatusLabelHighVoltage.Text = "当前高压：0    当前电流：0";
             // 
             // toolStripStatusLabelMeasureStatus
             // 
             this.toolStripStatusLabelMeasureStatus.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right)));
             this.toolStripStatusLabelMeasureStatus.Name = "toolStripStatusLabelMeasureStatus";
-            this.toolStripStatusLabelMeasureStatus.Size = new System.Drawing.Size(73, 24);
+            this.toolStripStatusLabelMeasureStatus.Size = new System.Drawing.Size(60, 21);
             this.toolStripStatusLabelMeasureStatus.Text = "测量结束";
             // 
             // toolStripStatusLabelCountDown
             // 
             this.toolStripStatusLabelCountDown.Name = "toolStripStatusLabelCountDown";
-            this.toolStripStatusLabelCountDown.Size = new System.Drawing.Size(0, 24);
+            this.toolStripStatusLabelCountDown.Size = new System.Drawing.Size(0, 21);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             this.contextMenuStrip1.ItemAdded += new System.Windows.Forms.ToolStripItemEventHandler(this.contextMenuStrip1_ItemAdded);
             // 
             // FormMDIParent
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::XRD_Tool.Properties.Resources.背景底图;
-            this.ClientSize = new System.Drawing.Size(1800, 911);
+            this.ClientSize = new System.Drawing.Size(1203, 706);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.IsMdiContainer = true;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormMDIParent";
             this.Text = "浩元仪器测量软件（Ver1.0）";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMDIParent_FormClosing);
@@ -437,7 +405,6 @@
         public System.Windows.Forms.Button buttonMenuCtrl;
         public System.Windows.Forms.Button buttonMenuTexture;
         public System.Windows.Forms.Button buttonExit;
-        public System.Windows.Forms.Button buttonUser;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelMeasureStatus;
         public System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabelHighVoltage;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

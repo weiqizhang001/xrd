@@ -1,0 +1,36 @@
+[2018-06-18 13:51:39 236]Log Start******************************************************
+
+[2018-06-18 13:51:40 596] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-18 13:51:40 880] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-18 13:51:43 396] [DeviceInit] Init Skip
+
+[2018-06-18 13:51:44 537] [Parent] Menu Measure
+
+[2018-06-18 13:51:45 115] [Measure] check 5 Axis=Unchecked
+[2018-06-18 14:00:48 709]Log Start******************************************************
+
+[2018-06-18 14:00:49 677] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-18 14:00:49 802] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-18 14:00:50 787] [DeviceInit] Init Skip
+
+[2018-06-18 14:00:51 914] [Parent] Menu Measure
+
+[2018-06-18 14:00:52 102] [Measure] check 5 Axis=Unchecked
+[2018-06-18 14:52:36 714]Log Start******************************************************
+
+[2018-06-18 14:52:37 574] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-18 14:52:37 792] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-18 14:52:39 152] [DeviceInit] Init Skip
+
+[2018-06-18 14:52:40 293] [Parent] Menu Measure
+
+[2018-06-18 14:52:40 777] [Measure] check 5 Axis=Unchecked
+
+[2018-06-18 14:52:48 435] [Parent] closing
+[2018-06-18 14:52:48 435]Log End******************************************************

@@ -341,68 +341,20 @@ namespace XRD_Tool
             try
             {
                 string strRecvData = System.Text.Encoding.Default.GetString(text);
-                if (strRecvData.IndexOf("**") >= 0)
+                if ((strRecvData.IndexOf("**") >= 0)
+                    || (myApi.SDD_ErrorState))
                 {
-                    myUart.DeviceStateBackup = myUart.DeviceState;
-                    myUart.DeviceState = DEVICE_STATE.DEVICE_ERROR;
-                    timerUartRecv.Enabled = false;
+                    UartRecv_DeviceError(text, PackageLen);
 
-                    myApi.SendDevicePause();
-                    timerUartRecv.Interval = 1000 * 5;
-                    timerUartRecv.Enabled = true;
-                    //showErrorMessageBox(strRecvData);
-                    myUart.Pack_Debug_out(text, "Recv Device Error" + "[" + strRecvData + "]");
+                    return;
                 }
                 else
                 {
-                    if (DEVICE_STATE.DEVICE_ERROR == myUart.DeviceState)
-                    {
-                        if (DEVICE_CMD_ID.SET_DEV_PAUSE == LastSendCmd)
-                        {
-                            result = myApi.RecvDeviceReady(text);
-                            if (result)
-                            {
-                                timerUartRecv.Enabled = false;
 
-                                myApi.SendCloseShutter();
-                                timerUartRecv.Interval = 1000 * 5;
-                                timerUartRecv.Enabled = true;
                             }
-                        }
-                        else if (DEVICE_CMD_ID.CLOSE_LIGHT_SHUTTER == LastSendCmd)
-                        {
-                            result = myApi.RecvDeviceReady(text);
-                            if (result)
-                            {
-                                timerUartRecv.Enabled = false;
-
-                                myApi.SendHighVoltageDown(myApi.DefaultVotage, myApi.DefaultCurrent);
-                                timerUartRecv.Interval = 1000 * 10;
-                                timerUartRecv.Enabled = true;
-                            }
-                        }
-                        else if (DEVICE_CMD_ID.SET_HIGH_VOLTAGE_DOWN == LastSendCmd)
-                        {
-                            result = myApi.RecvDeviceReady(text);
-                            if (result)
-                            {
-                                timerUartRecv.Enabled = false;
-
-                                myUart.DeviceState = myUart.DeviceStateBackup;
-                            }
-                        }
-                        else
-                        {
-
-                        }
-
-                        return;
-                    }
-                }
 
 
 
-                //if (DEVICE_CMD_ID.CHECK_DEV_READY == LastSendCmd)
                 if (DEVICE_CMD_ID.SET_DEV_PAUSE == LastSendCmd)
                 {
                     result = myApi.RecvDeviceReady(text);
@@ -540,77 +492,83 @@ namespace XRD_Tool
             }   
         }
 
-        //public void UartRecv_DeviceError(byte[] text, int PackageLen)
-        //{
-        //    bool result = false;
-        //    int LastSendCmd = myApi.CurrentSendCmd;
+        public void UartRecv_DeviceError(byte[] text, int PackageLen)
+        {
+            bool result = false;
+            int LastSendCmd = myApi.CurrentSendCmd;
 
-        //    try
-        //    {
-        //        string strRecvData = System.Text.Encoding.Default.GetString(text);
-        //        if (strRecvData.IndexOf("*") >= 0)
-        //        {
-        //            myUart.DeviceStateBackup = myUart.DeviceState;
-        //            myUart.DeviceState = DEVICE_STATE.DEVICE_ERROR;
-        //            timerUartRecv.Enabled = false;
+            try
+            {
 
-        //            myApi.SendDevicePause();
-        //            timerUartRecv.Interval = 1000 * 5;
-        //            timerUartRecv.Enabled = true;
-        //            //showErrorMessageBox(strRecvData);
-        //            myUart.Pack_Debug_out(text, "Recv Device Error" + "[" + strRecvData + "]");
-        //        }
-        //        else
-        //        {
-        //            if (DEVICE_CMD_ID.SET_DEV_PAUSE == LastSendCmd)
-        //            {
-        //                result = myApi.RecvDeviceReady(text);
-        //                if (result)
-        //                {
-        //                    timerUartRecv.Enabled = false;
+                string strRecvData = System.Text.Encoding.Default.GetString(text);
+                int index = strRecvData.IndexOf("**");
 
-        //                    myApi.SendCloseShutter();
-        //                    timerUartRecv.Interval = 1000 * 5;
-        //                    timerUartRecv.Enabled = true;
-        //                }
-        //            }
-        //            else if (DEVICE_CMD_ID.CLOSE_LIGHT_SHUTTER == LastSendCmd)
-        //            {
-        //                result = myApi.RecvDeviceReady(text);
-        //                if (result)
-        //                {
-        //                    timerUartRecv.Enabled = false;
+                if (index >= 0)
+                {
+                    timerUartRecv.Enabled = false;
+                    myApi.SDD_ErrorState = true;
+                    myApi.SDD_ErrorString = strRecvData.Remove(0, index);
 
-        //                    myApi.SendHighVoltageDown(myApi.DefaultVotage, myApi.DefaultCurrent);
-        //                    timerUartRecv.Interval = 1000 * 10;
-        //                    timerUartRecv.Enabled = true;
-        //                }
-        //            }
-        //            else if (DEVICE_CMD_ID.SET_HIGH_VOLTAGE_DOWN == LastSendCmd)
-        //            {
-        //                result = myApi.RecvDeviceReady(text);
-        //                if (result)
-        //                {
-        //                    timerUartRecv.Enabled = false;
+                    myApi.SendDevicePause();
+                    timerUartRecv.Interval = 1000 * 5;
+                    timerUartRecv.Enabled = true;
+                    myUart.Pack_Debug_out(text, "Recv Device Error" + "[" + strRecvData + "]");
+                }
+                else
+                {
+                    if (DEVICE_CMD_ID.SET_DEV_PAUSE == LastSendCmd)
+                    {
+                        result = myApi.RecvDeviceReady(text);
+                        if (result)
+                        {
+                            timerUartRecv.Enabled = false;
 
-        //                    myUart.DeviceState = myUart.DeviceStateBackup;
-        //                }
-        //            }
-        //            else
-        //            {
+                            myApi.SendCloseShutter();
+                            timerUartRecv.Interval = 1000 * 5;
+                            timerUartRecv.Enabled = true;
+                        }
+                    }
+                    else if (DEVICE_CMD_ID.CLOSE_LIGHT_SHUTTER == LastSendCmd)
+                    {
+                        result = myApi.RecvDeviceReady(text);
+                        if (result)
+                        {
+                            timerUartRecv.Enabled = false;
 
-        //            }
-        //        } 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
-        //    }            
-        //}
+                            myApi.SendHighVoltageDown(myApi.DefaultVotage, myApi.DefaultCurrent);
+                            timerUartRecv.Interval = 1000 * 10;
+                            timerUartRecv.Enabled = true;
+                        }
+                    }
+                    else if (DEVICE_CMD_ID.SET_HIGH_VOLTAGE_DOWN == LastSendCmd)
+                    {
+                        result = myApi.RecvDeviceReady(text);
+                        if (result)
+                        {
+                            timerUartRecv.Enabled = false;
+
+                            showErrorMessageBox(myApi.SDD_ErrorString);
+                            myApi.SDD_ErrorState = false;
+                            myApi.SDD_ErrorString = "";
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
 
         private bool WarmUpCheck()
         {
             bool needconfirm = false;
+
+            return needconfirm;
 
             try
             {
@@ -823,21 +781,6 @@ namespace XRD_Tool
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //DetectorErrorRecvData(System.Text.Encoding.ASCII.GetBytes("**12 DOOR OPENED FAULT"), 0);
-                //myApi.UartSendCmd(System.Text.Encoding.ASCII.GetBytes("SSS\r"));
-                myApi.SendGetHighVoltage();
-                timerUartRecv.Interval = 1000 * 5;
-                timerUartRecv.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
-            }
-        }
         private void ReadFromConfig()
         {
             try
@@ -927,12 +870,22 @@ namespace XRD_Tool
         {
             bool result = false;
             int LastSendCmd = myApi.CurrentSendCmd;
+            int retry = 0;
 
             try
             {
                 while (!myApi.Connect())
                 {
                     Thread.Sleep(1000);
+                    retry++;
+
+                    if (retry >= 3)
+                    {
+                        retry = 0;
+                        showErrorMessageBox("阵线探测器服务器连接失败");
+
+                        return;
+                    }
                 }
 
                 if (DEVICE_STATE.DEVICE_INIT == myUart.DeviceState)

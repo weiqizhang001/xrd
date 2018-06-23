@@ -416,5 +416,25 @@ namespace XRD_Tool
                 return str;
             }
         }
+
+        public static int GetArrayIndexOfValue(double[] array, double value)
+        { 
+            int index = 0;
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == value)
+                {
+                    index = i;
+
+                    break;
+                }
+            
+            }
+
+            return index;
+        
+        }
+
     }
 }

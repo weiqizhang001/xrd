@@ -76,6 +76,7 @@
             this.textBoxSavePath.Location = new System.Drawing.Point(52, 93);
             this.textBoxSavePath.Multiline = true;
             this.textBoxSavePath.Name = "textBoxSavePath";
+            this.textBoxSavePath.ReadOnly = true;
             this.textBoxSavePath.Size = new System.Drawing.Size(196, 54);
             this.textBoxSavePath.TabIndex = 10;
             // 

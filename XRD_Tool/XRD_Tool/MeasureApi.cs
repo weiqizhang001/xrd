@@ -105,6 +105,10 @@ namespace XRD_Tool
         public byte[] TCPRecvBytes;
         public int[] TCP_RecvIntensityArray = new int[640];
         
+        public bool SDD_ErrorState = false;
+        public string SDD_ErrorString;
+        public System.Timers.Timer timerUartRecv;
+        
         // 构造函数
         public MeasureApi(FormDeviceInit form)
         {
@@ -114,7 +118,31 @@ namespace XRD_Tool
             SDDApi = new SDDDetector();
             LDAApi = new LDADetector();
 
+            // timer
+            timerUartRecv = new System.Timers.Timer(10000);
+            timerUartRecv.Elapsed += new System.Timers.ElapsedEventHandler(timerUartRecv_Timeout);
+            timerUartRecv.AutoReset = true;
+            timerUartRecv.Enabled = false;
+
             RecvDataTableInit();  
+        }
+
+        private void timerUartRecv_Timeout(object sender, EventArgs e)
+        {
+            try
+            {
+                timerUartRecv.Enabled = false;
+                if (SDD_ErrorState)
+                {
+                    FormDeviceInit.showErrorMessageBox(SDD_ErrorString);
+                    SDD_ErrorState = false;
+                    SDD_ErrorString = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
         }
 
         public void UartSendCmd(byte[] cmd)
@@ -139,6 +167,80 @@ namespace XRD_Tool
                 myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
             }
         }
+
+        public void UartRecv_DeviceError(byte[] text, int PackageLen)
+        {
+            bool result = false;
+            int LastSendCmd = CurrentSendCmd;
+
+            try
+            {
+
+                string strRecvData = System.Text.Encoding.Default.GetString(text);
+                int index = strRecvData.IndexOf("**");
+
+                if (index >= 0)
+                {
+                    timerUartRecv.Enabled = false;
+                    SDD_ErrorState = true;
+                    SDD_ErrorString = strRecvData.Remove(0, index);
+
+                    SendDevicePause();
+                    timerUartRecv.Interval = 1000 * 5;
+                    timerUartRecv.Enabled = true;
+                    myUart.Pack_Debug_out(text, "Recv Device Error" + "[" + strRecvData + "]");
+                }
+                else
+                {
+                    if (DEVICE_CMD_ID.SET_DEV_PAUSE == LastSendCmd)
+                    {
+                        result = RecvDeviceReady(text);
+                        if (result)
+                        {
+                            timerUartRecv.Enabled = false;
+
+                            SendCloseShutter();
+                            timerUartRecv.Interval = 1000 * 5;
+                            timerUartRecv.Enabled = true;
+                        }
+                    }
+                    else if (DEVICE_CMD_ID.CLOSE_LIGHT_SHUTTER == LastSendCmd)
+                    {
+                        result = RecvDeviceReady(text);
+                        if (result)
+                        {
+                            timerUartRecv.Enabled = false;
+
+                            SendHighVoltageDown(DefaultVotage, DefaultCurrent);
+                            timerUartRecv.Interval = 1000 * 10;
+                            timerUartRecv.Enabled = true;
+                        }
+                    }
+                    else if (DEVICE_CMD_ID.SET_HIGH_VOLTAGE_DOWN == LastSendCmd)
+                    {
+                        result = RecvDeviceReady(text);
+                        if (result)
+                        {
+                            timerUartRecv.Enabled = false;
+
+                            FormDeviceInit.showErrorMessageBox(SDD_ErrorString);
+                            SDD_ErrorState = false;
+                            SDD_ErrorString = "";
+                        }
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }     
+
+
 
         #region 设备初始化
         
@@ -315,19 +417,19 @@ namespace XRD_Tool
                     if (!myTCP.connected)
                     {
                         myTCP.start();
-                    }
-                    else
-                    {
-                        
+                        if (!myTCP.connected)
+                        {
+                            return false;
+                        }
                     }
 
                     Reset();
 
                     return true;
-
                 }
                 else
                 {
+
                 }
             }
             catch (Exception ex)
@@ -452,7 +554,7 @@ namespace XRD_Tool
                 else
                 {
                     //int ms = 100;
-                    int ms = (int)(sec * 1000);
+                    Int64 ms = (Int64)(sec * 1000);
                     TCPSendBuf = LDAApi.SetExposureTimeOfOneFrame((ms * 1000 * 1000) / 100 );
                     TCPSend(TCPSendBuf);
                 }
@@ -1407,6 +1509,111 @@ namespace XRD_Tool
         {
             try
             {
+                RecvDataStreamWriter.Close();
+                RecvDataFileStream.Close();
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+        /// <summary>
+        /// 保存织构结果
+        /// </summary>
+        /// <param name="_dt">数据体</param>
+        /// <param name="_ypmc">样品名称</param>
+        /// <param name="_ypbh">样品编号</param>
+        /// <param name="_jmzs">镜面指数</param>
+        /// <param name="_BM">模式</param>
+        public void SaveTxt(DataTable _dt,string _ypmc,string _ypbh,string _jmzs,string _BM)
+        {
+            FileStream fs;
+            StreamWriter sw;
+            string file_name;
+
+            if (_dt.Rows.Count > 0)
+            {
+                file_name = SavePath; 
+                file_name += "\\" + _ypmc + "-" + _ypbh + "_" + _jmzs + DateTime.Now.ToString("yyyyMMdd-HHmmss") + "." + _BM;
+
+                myUart.Pack_Debug_out(null, "SaveTxt start" + "[" + file_name + "]" + _dt.Rows.Count.ToString());
+
+                fs = new FileStream(file_name, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+                sw = new StreamWriter(fs, System.Text.Encoding.ASCII);
+
+                foreach (DataRow dr in _dt.Rows)
+                {
+
+                    sw.WriteLine(dr[3].ToString());
+                }
+                sw.WriteLine("-1");
+
+                sw.Close();
+                fs.Close();
+
+                myUart.Pack_Debug_out(null, "SaveTxt end");
+            }
+            else
+            {
+                MessageBox.Show("没有要保存的数据");
+                return;
+            }
+            
+        }
+        public void Texture_SaveFileStart(double FaceExp, int GroupIndex, string BM)
+        {
+            try
+            {
+                RecvDataFileName = SavePath;
+                RecvDataFileName += "\\" + SampleName;
+                RecvDataFileName += "_" + SampleSn;
+                RecvDataFileName += "_" + FaceExp.ToString();
+                RecvDataFileName += "_" + GroupIndex.ToString();
+                RecvDataFileName += "_" + DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                RecvDataFileName += "." + BM;
+
+                if (SerialPortCommon.FileIsUsed(RecvDataFileName))
+                {
+                    RecvDataFileName = RecvDataFileName.Replace("." + BM, "_2." + BM);
+                    myUart.Pack_Debug_out(null, "FileNameError" + "[" + RecvDataFileName + "]");
+                }
+                RecvDataFileStream = new FileStream(RecvDataFileName, System.IO.FileMode.Create, System.IO.FileAccess.Write);
+                RecvDataStreamWriter = new StreamWriter(RecvDataFileStream, System.Text.Encoding.ASCII);
+
+
+                //if (index == 0)
+                //{
+                //    RecvDataFileNameArray = new string[AnglePsi.Length];
+                //}
+                //RecvDataFileNameArray[index] = RecvDataFileName;
+
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        public void Texture_SaveFileProc(int data)
+        {
+            try
+            {
+                string strWrite = data.ToString();
+                RecvDataStreamWriter.WriteLine(strWrite);
+            }
+            catch (Exception ex)
+            {
+                myUart.Pack_Debug_out(null, "Exception" + "[" + ex.ToString() + "]");
+            }
+        }
+
+        public void Texture_SaveFileEnd()
+        {
+            try
+            {
+                string strWrite = "-1";
+                RecvDataStreamWriter.WriteLine(strWrite);
+
                 RecvDataStreamWriter.Close();
                 RecvDataFileStream.Close();
             }

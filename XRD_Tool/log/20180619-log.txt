@@ -1,0 +1,167 @@
+[2018-06-19 15:03:33 903]Log Start******************************************************
+
+[2018-06-19 15:03:38 796] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 15:03:39 077] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 15:03:41 453] [DeviceInit] Init Skip
+
+[2018-06-19 15:03:43 063] [Parent] Menu Measure
+
+[2018-06-19 15:03:43 579] [Measure] check 5 Axis=Unchecked
+
+[2018-06-19 15:03:46 789] [Parent] Shortcut Calc
+
+[2018-06-19 15:04:12 872] [Parent] Menu Measure
+
+[2018-06-19 15:04:12 966] [Measure] check 5 Axis=Unchecked
+
+[2018-06-19 15:04:13 013] [Measure] Chart Fit Update,series=LDA_sample_name_56789_Psi-45_20180603-123104.txt file=D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\LDA_sample_name_56789_Psi-45_20180603-123104.txt
+
+[2018-06-19 15:04:14 295] Python Cmd: [python D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CurveFittingPearson_20180526.py 1 D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\LDA_sample_name_56789_Psi-45_20180603-123104.txt 0 > D:\work\xrd\04.CodeLibrary\Trunk\XRD_Tool\XRD_Tool\bin\Debug\CalcResult.py]
+
+[2018-06-19 15:04:14 295] Python Result: [154.951709958299,730.420665990276,7.3391156567896,0.197825860321631,7.33911565678958]
+
+[2018-06-19 15:04:21 515] [Parent] closing
+[2018-06-19 15:04:21 515]Log End******************************************************
+[2018-06-19 15:13:57 243]Log Start******************************************************
+
+[2018-06-19 15:13:58 102] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 15:13:58 258] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 15:13:59 133] [DeviceInit] Init Skip
+
+[2018-06-19 15:14:00 540] [Parent] Menu Measure
+
+[2018-06-19 15:14:00 665] [Measure] check 5 Axis=Unchecked
+[2018-06-19 15:14:52 954]Log Start******************************************************
+
+[2018-06-19 15:14:54 251] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 15:14:54 392] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 15:14:55 314] [DeviceInit] Init Skip
+
+[2018-06-19 15:14:56 080] [Parent] Menu Measure
+
+[2018-06-19 15:14:56 204] [Measure] check 5 Axis=Unchecked
+[2018-06-19 15:23:19 724]Log Start******************************************************
+
+[2018-06-19 15:23:20 701] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 15:23:20 842] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 15:23:21 639] [DeviceInit] Init Skip
+
+[2018-06-19 15:23:22 405] [Parent] Menu Measure
+
+[2018-06-19 15:23:22 530] [Measure] check 5 Axis=Unchecked
+[2018-06-19 15:31:49 205]Log Start******************************************************
+
+[2018-06-19 15:31:51 122] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 15:31:51 247] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 15:31:52 248] [DeviceInit] Init Skip
+
+[2018-06-19 15:31:53 357] [Parent] Menu Measure
+
+[2018-06-19 15:31:53 498] [Measure] check 5 Axis=Unchecked
+[2018-06-19 15:40:47 478]Log Start******************************************************
+
+[2018-06-19 15:40:50 603] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 15:40:50 728] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 15:40:51 713] [DeviceInit] Init Skip
+
+[2018-06-19 15:40:52 603] [Parent] Menu Measure
+
+[2018-06-19 15:40:52 728] [Measure] check 5 Axis=Unchecked
+[2018-06-19 17:20:17 281]Log Start******************************************************
+
+[2018-06-19 17:20:18 338] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 17:20:18 516] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 17:20:19 468] [DeviceInit] Init Skip
+
+[2018-06-19 17:20:20 569] [Parent] Menu Measure
+
+[2018-06-19 17:20:20 994] [Measure] check 5 Axis=Unchecked
+
+[2018-06-19 17:20:22 616] [Parent] Menu Texture
+
+[2018-06-19 17:20:50 941] [Parent] closing
+[2018-06-19 17:20:50 942]Log End******************************************************
+[2018-06-19 17:22:06 582]Log Start******************************************************
+
+[2018-06-19 17:22:10 130] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 17:22:10 265] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 17:22:11 188] [DeviceInit] Init Skip
+
+[2018-06-19 17:22:12 081] [Parent] Menu Measure
+
+[2018-06-19 17:22:12 218] [Measure] check 5 Axis=Unchecked
+
+[2018-06-19 17:22:13 297] [Parent] Menu Texture
+
+[2018-06-19 17:25:33 573] [Parent] closing
+[2018-06-19 17:25:33 574]Log End******************************************************
+[2018-06-19 17:25:58 728]Log Start******************************************************
+
+[2018-06-19 17:25:59 962] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 17:26:00 083] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 17:26:01 096] [DeviceInit] Init Skip
+
+[2018-06-19 17:26:03 309] [Parent] Menu Texture
+
+[2018-06-19 17:26:49 135] [Parent] closing
+[2018-06-19 17:26:49 136]Log End******************************************************
+[2018-06-19 17:27:45 325]Log Start******************************************************
+
+[2018-06-19 17:28:55 781] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 17:28:55 900] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 17:28:59 151] [DeviceInit] Init Skip
+
+[2018-06-19 17:29:00 517] [Parent] Menu Texture
+
+[2018-06-19 17:29:21 244] [Parent] closing
+[2018-06-19 17:29:21 245]Log End******************************************************
+[2018-06-19 17:29:35 253]Log Start******************************************************
+
+[2018-06-19 17:29:36 705] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 17:29:36 835] [DeviceInit] Init faild, Uart Port not open
+
+[2018-06-19 17:29:37 971] [DeviceInit] Init Skip
+
+[2018-06-19 17:29:39 257] [Parent] Menu Texture
+
+[2018-06-19 17:33:54 611] [Parent] closing
+[2018-06-19 17:33:54 612]Log End******************************************************
+[2018-06-19 21:28:25 938]Log Start******************************************************
+
+[2018-06-19 21:28:26 916] [UserLogin] login succeed!user=administrator,pwd=123456
+
+[2018-06-19 21:28:27 118] [DeviceInit] Init Start
+2F0D
+[2018-06-19 21:28:27 121] UART Send: [/]
+
+[2018-06-19 21:28:28 393] [DeviceInit] Init Skip
+
+[2018-06-19 21:28:29 443] [Parent] Menu Measure
+
+[2018-06-19 21:28:29 577] [Measure] check 5 Axis=Unchecked
+
+[2018-06-19 21:28:35 419] [Parent] Menu Texture
+
+[2018-06-19 21:28:41 384] [Parent] closing
+[2018-06-19 21:28:41 385]Log End******************************************************

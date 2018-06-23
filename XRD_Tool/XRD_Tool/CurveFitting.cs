@@ -20,19 +20,19 @@ namespace XRD_Tool
         }
 
 
-        public static bool Calc2Theta(string dataFile, ref double[] calcResult)
+        public static bool Calc2Theta(string dataFile, ref double[] calcResult, int functionIndex)
         {
             bool result = false;
 
             string CurrentPath = System.IO.Directory.GetCurrentDirectory();
-            //string ScriptFileName = CurrentPath + "\\CurveFittingPearson_20180505.py";
-            string ScriptFileName = CurrentPath + "\\Resources\\CurveFittingPearson_20180526.py";
+            //string ScriptFileName = CurrentPath + "\\Resources\\CurveFittingPearson_20180526.py";
+            string ScriptFileName = CurrentPath + "\\Resources\\CurveFittingPearson_20180622.py";
             string ResultFileName = CurrentPath + "\\Resources\\CalcResult.py";
 
 
             strCallPyCmd = "python";
             strCallPyCmd += " " + ScriptFileName;    // script name
-            strCallPyCmd += " " + "1";      // api index
+            strCallPyCmd += " " + functionIndex.ToString();      // api index
             strCallPyCmd += " " + dataFile; // api param1
             strCallPyCmd += " " + "0";      // api param2,pattern
 
@@ -105,7 +105,7 @@ namespace XRD_Tool
 
             try
             {
-                y = H / (Math.Pow((1 + (4 * (Math.Pow(2, 1 / n)) / (Math.Pow(D, 2))) * (Math.Pow(((x - x0)), 2))), n));
+                y = H / (Math.Pow((1 + (4 * (Math.Pow(2, 1 / n) -1) / (Math.Pow(D, 2))) * (Math.Pow(((x - x0)), 2))), n));
 
                 result = true;
             }

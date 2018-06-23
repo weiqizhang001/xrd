@@ -101,7 +101,7 @@ namespace XRD_Tool
         /// </summary>  
         /// <param name="iniFile">Ini文件</param>  
         /// <returns>所有节点,没有内容返回string[0]</returns>  
-        public static string[] INIGetAllSectionNames(string iniFile)
+        public string[] INIGetAllSectionNames(string iniFile)
         {
             uint MAX_BUFFER = 32767;    //默认为32767  
 
@@ -232,7 +232,7 @@ namespace XRD_Tool
         /// <param name="section">节点，如果不存在此节点，则创建此节点</param>  
         /// <param name="items">键值对，多个用\0分隔,形如key1=value1\0key2=value2</param>  
         /// <returns></returns>  
-        public static bool INIWriteItems(string iniFile, string section, string items)
+        public bool INIWriteItems(string iniFile, string section, string items)
         {
             if (string.IsNullOrEmpty(section))
             {
@@ -304,7 +304,7 @@ namespace XRD_Tool
         /// <param name="iniFile">INI文件</param>  
         /// <param name="section">节点</param>  
         /// <returns>操作是否成功</returns>  
-        public static bool INIDeleteSection(string iniFile, string section)
+        public bool INIDeleteSection(string iniFile, string section)
         {
             if (string.IsNullOrEmpty(section))
             {

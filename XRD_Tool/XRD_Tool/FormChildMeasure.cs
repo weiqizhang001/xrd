@@ -26,6 +26,7 @@ namespace XRD_Tool
         public DataResultTable myResultTable;
         public CurveFitting myCurveFit;
         public byte deviceStateBackup;
+        IniEdit iniE = new IniEdit();//参数设置
 
         public int ChartRealTimeShowIndex = 0;  // 实时绘图的当前数据的行号的索引
 
@@ -48,10 +49,10 @@ namespace XRD_Tool
       
 #region 测量范围
         public double[] START_DEGREE_MIN = { 95.0, 95.0, 95.0, 95.0 };
-        public double[] START_DEGREE_MAX = { 167.0, 167.0, 155.0, 155.0 };
+        public double[] START_DEGREE_MAX = { 168.0, 168.0, 156.0, 156.0 };
 
         public double[] STOP_DEGREE_MIN = { 95.0, 95.0, 95.0, 95.0 };
-        public double[] STOP_DEGREE_MAX = { 167.0, 167.0, 155.0, 155.0 };
+        public double[] STOP_DEGREE_MAX = { 168.0, 168.0, 156.0, 156.0 };
 
         public double[] MEASURE_STEP_MIN = { 0.0002, 0.0002, 0.005, 0.005 };
         public double[] MEASURE_STEP_MAX = { 1.0, 1.0, 1.0, 1.0 };
@@ -101,6 +102,7 @@ namespace XRD_Tool
 
             tooltip = new ToolTip();
 
+            iniE.IniEditConfig("参数设置.ini");
             timerHighVoltage_10min = new System.Timers.Timer(1000 * 60 * 10); // 10min
             timerHighVoltage_10min.Elapsed += new System.Timers.ElapsedEventHandler(timerHighVoltage_10min_Timeout);
             timerHighVoltage_10min.AutoReset = true;
@@ -174,8 +176,8 @@ namespace XRD_Tool
 
         private void FormChildMea_Load(object sender, EventArgs e)
         {
-            buttonTest.Visible = true;
-            buttonTest.Enabled = true;
+            buttonTest.Visible = false;
+            buttonTest.Enabled = false;
 
             try
             {
@@ -413,8 +415,8 @@ namespace XRD_Tool
                 textBox_StopDegree.Text = "24";
                 textBox_StopDegree.ReadOnly = true;
      
-                textBox_MeaStep.Text = "0.04";
-                textBox_MeaStep.ReadOnly = true;
+                //textBox_MeaStep.Text = "0.04";
+                //textBox_MeaStep.ReadOnly = true;
             }
             else
             {
@@ -423,7 +425,7 @@ namespace XRD_Tool
                 label_StopDegree.Text = "终止角度";
                 textBox_StopDegree.ReadOnly = false;
 
-                textBox_MeaStep.ReadOnly = false;
+                //textBox_MeaStep.ReadOnly = false;
             }
         }
 
@@ -539,17 +541,40 @@ namespace XRD_Tool
                 // 判断起始角度，终止角度范围
                 min = START_DEGREE_MIN[myApi.MeasureMethod];
                 max = START_DEGREE_MAX[myApi.MeasureMethod];
-                if ((myApi.StartDegree >= min) && (myApi.StopDegree <= max) && (myApi.StopDegree > myApi.StartDegree))
+                double start_degree = 0;
+                double stop_degree = 0;
+                if (0 == myApi.DetectorType)
+                {
+                    start_degree = myApi.StartDegree;
+                    stop_degree = myApi.StopDegree;
+                    if ((start_degree >= min) && (stop_degree <= max) && (stop_degree > start_degree))
                 {
                     // 角度OK
                 }
                 else
                 {
-                    FormDeviceInit.showErrorMessageBox("起始/终止角数据范围错误!（" + min.ToString() + " ~ " + max.ToString() + "）");
+                        FormDeviceInit.showErrorMessageBox("起始/终止角度数据范围错误!（" + min.ToString() + " ~ " + max.ToString() + "）");
                     result = false;
 
                     return result;
                 }
+                }
+                else
+                {
+                    start_degree = myApi.StartDegree;
+                    if ((start_degree >= min) && (start_degree <= max))
+                    {
+                        // 角度OK
+                    }
+                    else
+                    {
+                        FormDeviceInit.showErrorMessageBox("峰位角度数据范围错误!（" + min.ToString() + " ~ " + max.ToString() + "）");
+                        result = false;
+
+                        return result;
+                    }
+                }
+                
 
                 // 判断测量步宽范围
                 min = MEASURE_STEP_MIN[myApi.MeasureMethod];
@@ -559,7 +584,7 @@ namespace XRD_Tool
                     // 角度OK
                     if ((2 == myApi.MeasureMethod) || (3 == myApi.MeasureMethod))
                     {
-                        if (myApi.MeasureStep / 0.005 == 0)
+                        if (myApi.MeasureStep % 0.005 == 0)
                         { 
                         
                         }
@@ -821,7 +846,7 @@ namespace XRD_Tool
         {
             try
             {
-                myUart.Pack_Debug_out(null, "[Measure] Measure Start");
+                myUart.Pack_Debug_out(null, "[Measure] Measure Start,method=" + myApi.MeasureMethod.ToString());
 
                 myApi.SendDevicePause();
                 timerUartRecv.Interval = 1000 * 5;
@@ -1020,38 +1045,25 @@ namespace XRD_Tool
                 //mySeries2.Color = Color.Red;
                 //chartRealTime.Series.Add(mySeries2);
               
-                if (CurveFitting.Calc2Theta(dataFile, ref CalcResult))
+                if (CurveFitting.Calc2Theta(dataFile, ref CalcResult, 1))
                 {
                     double x0 = CalcResult[0];  // 波峰中心
                     double H = CalcResult[1];   // 波峰中心高度
                     double D = CalcResult[2];   // 半峰宽
                     double omega = CalcResult[3];
                     double sigma = CalcResult[4];
-                    double n = 1.5;
 
-                    double[] yCalc = new double[x.Length];
+                    //double[] yCalc = new double[x.Length];
 
-                    for (int i = 0; i < x.Length; i++)
-                    {
-                        // 拟合后的y值
-                        CurveFitting.PearsonVII_Calc_Y(x[i], x0, H, omega, sigma, out yCalc[i]);
-                        //CurveFitting.PearsonVII_Jade_Calc_Y(x[i], x0, H, n, D, out yCalc[i]);
+                    //for (int i = 0; i < x.Length; i++)
+                    //{
+                    //    // 拟合后的y值
+                    //    CurveFitting.PearsonVII_Calc_Y(x[i], x0, H, omega, sigma, out yCalc[i]);
                         
-                        mySeries.Points.AddXY(x[i], yCalc[i]);
+                    //    mySeries.Points.AddXY(x[i], yCalc[i]);
 
-                        //mySeries2.Points.AddXY(x[i], yCalc[i]);
-                    }
-
-                    //double[] dataGridView = new double[9];
-                    //dataGridView[0] = 0.0;  // "Beta"
-                    //dataGridView[1] = 0.0;  // "Psi"
-                    //dataGridView[2] = 0.0;  // "Sin^psi"
-                    //dataGridView[3] = 0.0;  // "DSpacing"
-                    //dataGridView[4] = x0;   // "2Theta"
-                    //dataGridView[5] = 0.0;  // "Strain*E3"
-                    //dataGridView[6] = D;    // "FWHM"
-                    //dataGridView[7] = 0.0;  // "Breadth"
-                    //dataGridView[8] = 0.0;  // "Intensity"
+                    //    mySeries2.Points.AddXY(x[i], yCalc[i]);
+                    //}
 
                     double[] dataGridView = new double[8];
                     dataGridView[0] = myApi.AnglePsi[MeasureIndex_Psi];  // "Psi"
@@ -1067,6 +1079,31 @@ namespace XRD_Tool
                     dataGridView[7] = 0.0;  // "%(d-d0)/d0"
 
                     dataGridViewUpdate(dataGridView);
+
+                    if (CurveFitting.Calc2Theta(dataFile, ref CalcResult, 3))
+                    {
+                        double x0_show = CalcResult[0];  // 波峰中心
+                        double H_show = CalcResult[1];   // 波峰中心高度
+                        double D_show = CalcResult[2];   // 半峰宽
+                        double n = CalcResult[3];
+                        double y_min = CalcResult[4];
+
+
+                        double[] yCalc_show = new double[x.Length];
+
+                        for (int i = 0; i < x.Length - 5; i++)
+                        {
+                            // 拟合后的y值
+                            CurveFitting.PearsonVII_Jade_Calc_Y(x[i], x0_show, H_show, n, D_show, out yCalc_show[i]);
+
+                            yCalc_show[i] += y_min;
+
+                            mySeries.Points.AddXY(x[i], yCalc_show[i]);
+
+                            //mySeries2.Points.AddXY(x[i], yCalc_show[i]);
+                        }
+                    }
+
                 }
                 else
                 {
@@ -1105,13 +1142,15 @@ namespace XRD_Tool
                     y[i] = (double)myResultTable.myDataTable.Rows[i][7];
                 }
 
-                double E = 216.0;
-                double V = 0.28;
+                double E = Convert.ToDouble(iniE.GetVlueWithKey("参数设置", "E"));
+                double V = Convert.ToDouble(iniE.GetVlueWithKey("参数设置", "V"));
                 double A = 0.0;
                 double B = 0.0;
                 double stress = 0.0;
 
                 CurveFitting.Calc_Stress(x, y, E, V, out stress, out A, out B);
+
+                myUart.Pack_Debug_out(null, "Calc_Stress" + "[" + E.ToString() + " " + V.ToString() + " " + stress.ToString() + " " + A.ToString() + " " + B.ToString() + " " + "]");
 
                 stress = stress * 10;
                 stress = Math.Round(stress, 3);
@@ -1121,8 +1160,16 @@ namespace XRD_Tool
                 labelStress.Text = stress.ToString();
                 labelB.Text = B.ToString() + "%";
                 labelA.Text = A.ToString() + "%";
+                labelName.Text = iniE.GetVlueWithKey("参数设置", "name");
                 labelE.Text = E.ToString() + " * 10^3";
                 labelV.Text = V.ToString();
+
+                label14.Visible = true;
+                label16.Visible = true;
+                label22.Visible = true;
+                labelStress.Visible = true;
+                labelA.Visible = true;
+                labelB.Visible = true;
             }
             catch (Exception ex)
             {
@@ -1134,8 +1181,8 @@ namespace XRD_Tool
         {
             try
             {
-                double E = 216.0;
-                double V = 0.28;
+                double E = Convert.ToDouble(iniE.GetVlueWithKey("参数设置", "E"));
+                double V = Convert.ToDouble(iniE.GetVlueWithKey("参数设置", "V"));
                 double A = 0.0;
                 double B = 0.0;
                 double stress = 0.0;
@@ -1149,6 +1196,13 @@ namespace XRD_Tool
                 labelA.Text = A.ToString() + "%";
                 labelE.Text = E.ToString() + " * 10^3";
                 labelV.Text = V.ToString();
+
+                label14.Visible = false;
+                label16.Visible = false;
+                label22.Visible = false;
+                labelStress.Visible = false;
+                labelA.Visible = false;
+                labelB.Visible = false;
             }
             catch (Exception ex)
             {
@@ -1221,7 +1275,7 @@ namespace XRD_Tool
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonTest_Click(object sender, EventArgs e)
         {
 
             OpenFileDialog fileDlg = new OpenFileDialog();
@@ -1574,6 +1628,7 @@ namespace XRD_Tool
                         {
                             timerUartRecv.Enabled = false;
 
+                            Thread.Sleep(1000);
                             myApi.SendGetHighVoltage();
                             timerUartRecv.Interval = 1000 * 5;
                             timerUartRecv.Enabled = true;
@@ -1611,8 +1666,8 @@ namespace XRD_Tool
 
                                 MeasureTimeCount = 0;
                                 MeasureTimeCountMax = (int)(myApi.TotalDataCount * (myApi.MeasureTime + 0.12));
-                                timerMeasureTimeCountDown.Enabled = true;
-                                timerMeasureTimeCountDown.Interval = 1000;
+                                //timerMeasureTimeCountDown.Enabled = true;
+                                //timerMeasureTimeCountDown.Interval = 1000;
                                 myUart.Pack_Debug_out(null, "CountDown start" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
                             }
                         }
@@ -1629,8 +1684,8 @@ namespace XRD_Tool
 
                             MeasureTimeCount = 0;
                             MeasureTimeCountMax = (int)(myApi.TotalDataCount * (myApi.MeasureTime + 0.12));
-                            timerMeasureTimeCountDown.Enabled = true;
-                            timerMeasureTimeCountDown.Interval = 1000;
+                            //timerMeasureTimeCountDown.Enabled = true;
+                            //timerMeasureTimeCountDown.Interval = 1000;
                             myUart.Pack_Debug_out(null, "CountDown start" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
                         }
                     }
@@ -1787,7 +1842,7 @@ namespace XRD_Tool
                         if (myApi.RecvDeviceReady(text))
                         {
                             timerUartRecv.Enabled = false;
-
+                            Thread.Sleep(1000);
                             myApi.SendGetHighVoltage();
                             timerUartRecv.Interval = 1000 * 5;
                             timerUartRecv.Enabled = true;
@@ -1825,8 +1880,8 @@ namespace XRD_Tool
 
                                 MeasureTimeCount = 0;
                                 MeasureTimeCountMax = (int)(myApi.TotalDataCount * (myApi.MeasureTime + 0.12));
-                                timerMeasureTimeCountDown.Enabled = true;
-                                timerMeasureTimeCountDown.Interval = 1000;
+                                //timerMeasureTimeCountDown.Enabled = true;
+                                //timerMeasureTimeCountDown.Interval = 1000;
                                 myUart.Pack_Debug_out(null, "CountDown start" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
                             }
                         }
@@ -1843,8 +1898,8 @@ namespace XRD_Tool
 
                             MeasureTimeCount = 0;
                             MeasureTimeCountMax = (int)(myApi.TotalDataCount * (myApi.MeasureTime + 0.12));
-                            timerMeasureTimeCountDown.Enabled = true;
-                            timerMeasureTimeCountDown.Interval = 1000;
+                            //timerMeasureTimeCountDown.Enabled = true;
+                            //timerMeasureTimeCountDown.Interval = 1000;
                             myUart.Pack_Debug_out(null, "CountDown start" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
                         }
                     }
@@ -1966,8 +2021,8 @@ namespace XRD_Tool
                             groupBoxSettings.Enabled = true;
                             checkBoxFiveAxis.Enabled = true;
                             checkBoxFiveAxis_CheckedChanged(this, null);
-                            timerMeasureTimeCountDown.Enabled = false;
-                            myUart.Pack_Debug_out(null, "CountDown stop" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
+                            //timerMeasureTimeCountDown.Enabled = false;
+                            //myUart.Pack_Debug_out(null, "CountDown stop" + "[" + MeasureTimeCount.ToString() + "," + MeasureTimeCountMax.ToString() + "]");
                             myParentForm.tableLayoutPanel1.Enabled = true;
                             myParentForm.tableLayoutPanel2.Enabled = true;
 
@@ -2145,16 +2200,73 @@ namespace XRD_Tool
                             TCP_PsiAngleArray[i] = startDegree + i * 25.6 / 640;
                         }
 
-                        double[] x;
-                        double[] y;
+                        //1.	拆分数据：对640组数据每两点间的趋势进行拆分，即640*8=5120个X光强度数据。
+                        double[] split_x;
+                        double[] split_y;
+                        myApi.TCP_RecvDataSplit(TCP_PsiAngleArray, myApi.TCP_RecvIntensityArray, 8, out split_x, out split_y);
+
+                        // 2.	平滑数据：对5120个数据进行5点平滑处理。
                         double[] smooth_y;
-                        myApi.TCP_RecvDataSplit(TCP_PsiAngleArray, myApi.TCP_RecvIntensityArray, 8, out x, out y);
+                        myApi.TCP_RecvDataSmooth(split_y, out smooth_y);
+                        
+                        // 3.	截取有效数据：因探测器扫描范围可以达到25.6度，所以开头的0.8度和结尾的0.8度数据需要舍去（只取中间的20度范围）。即1.6÷0.005=320个数据。最终得到5120-320=4800个X射线的强度数据。
+                        double[] cut_y = new double[4800];
+                        System.Array.Copy(smooth_y, 160, cut_y, 0, 4800);
 
-                        myApi.TCP_RecvDataSmooth(y, out smooth_y);
+                        // 4.	合并数据：将4800个X射线的强度数据进行步宽强度累加（步宽为用	户设定）。例如用户选择步宽为0.02，则合成步宽为0.02度（4*0.005=0.02）。得到以0.02度每步，总共1200个数据强度点。即总长度为1200*0.02=24度范围。
+                        int add_count = (int)(myApi.MeasureStep / 0.005);
+                        double[] y_add = new double[4800 / add_count];
+                        for (int i = 0; i < y_add.Length; i++)
+                        {
+                            y_add[i] = 0;
 
-                        double[] y2 = new double[4800];
-                        System.Array.Copy(smooth_y, 160, y2, 0, 4800);
+                            for (int j = 0; j < add_count; j++)
+                            {
+                                y_add[i] += cut_y[i * add_count + j];
+                            }
+                        }
 
+                        // 5.	去背底85%：对1200个数据强度点进行去背底操作。首先寻找这1200个数据点的最小值，取最小数据点两侧的数据进行5点平滑。将平滑得出的背底强度乘以85%，得出背底值X。
+                        double sumOfMin5Points = (double)y_add.Min();
+                        int countOfMin5Points = 1;
+                        int indexOfMin = SerialPortCommon.GetArrayIndexOfValue(y_add, sumOfMin5Points);
+                        if ((indexOfMin-2) >= 0)
+                        {
+                            sumOfMin5Points += y_add[indexOfMin - 2];
+                            countOfMin5Points++;
+                        }
+                        if ((indexOfMin - 1) >= 0)
+                        {
+                            sumOfMin5Points += y_add[indexOfMin - 1];
+                            countOfMin5Points++;
+                        }
+                        if ((indexOfMin + 1) <= y_add.Length - 1)
+                        {
+                            sumOfMin5Points += y_add[indexOfMin + 1];
+                            countOfMin5Points++;
+                        }
+                        if ((indexOfMin + 2) <= y_add.Length - 1)
+                        {
+                            sumOfMin5Points += y_add[indexOfMin + 2];
+                            countOfMin5Points++;
+                        }
+
+                        double backGroundValue = (sumOfMin5Points / countOfMin5Points) * 0.85;
+
+                        int[] y_85 = new int[y_add.Length];
+                        double[] x_85 = new double[y_85.Length];
+                        startDegree = myApi.StartDegree - 24 / 2;
+                        for (int i = 0; i < y_add.Length; i++)
+                        {
+                            y_85[i] = (int)(y_add[i] - backGroundValue);
+                            //y_85[i] = (int)(y_add[i]);
+                            x_85[i] = startDegree + i * ((double)24 / (double)y_add.Length);
+                        }
+
+
+
+                        myApi.RecvDataTableUpdate(x_85, y_85);
+                        myApi.RecvDataTableSaveFileProc(x_85, y_85);
 
                         //// 截取有效数据
                         //double[] TCP_PsiAngleArray = new double[600];
@@ -2342,7 +2454,13 @@ namespace XRD_Tool
 
             try
             {
-                string RscFileName = myApi.RecvDataFileNameArray[0].Replace("txt", "RSC");
+                //string RscFileName = myApi.RecvDataFileNameArray[0].Replace("txt", "RSC");
+                string RscFileName = myApi.SavePath;
+                RscFileName += "\\" + myApi.SampleName;
+                RscFileName += "_" + myApi.SampleSn;
+                RscFileName += "_" + DateTime.Now.ToString("yyyyMMdd-HHmmss");
+                RscFileName += ".RSC";
+
                 myUart.Pack_Debug_out(null, "[Measure] Create RSC=" + RscFileName);
                 FileStream fs = new FileStream(RscFileName, System.IO.FileMode.Create, System.IO.FileAccess.Write);
                 StreamWriter sw = new StreamWriter(fs, System.Text.Encoding.ASCII);
@@ -2377,9 +2495,21 @@ namespace XRD_Tool
                         sw.WriteLine(lineStr);
                         lineStr = "#.WLa1. " + "2.2907" + "                                                              .";
                         sw.WriteLine(lineStr);
-                        lineStr = "#.ANFG. " + myApi.StartDegree.ToString() + "                                                                  .";
+                        double start_degree = 0;
+                        double stop_degree = 0;
+                        if (0 == myApi.DetectorType)
+                        {
+                            start_degree = myApi.StartDegree;
+                            stop_degree = myApi.StopDegree;
+                        }
+                        else
+                        {
+                            start_degree = myApi.StartDegree - myApi.StopDegree / 2;
+                            stop_degree = myApi.StartDegree + myApi.StopDegree / 2;
+                        }
+                        lineStr = "#.ANFG. " + start_degree.ToString() + "                                                                  .";
                         sw.WriteLine(lineStr);
-                        lineStr = "#.ENDE. " + myApi.StopDegree.ToString() + "                                                                  .";
+                        lineStr = "#.ENDE. " + stop_degree.ToString() + "                                                                  .";
                         sw.WriteLine(lineStr);
                         lineStr = "#.STEP. " + myApi.MeasureStep.ToString() + "                                                                 .";
                         sw.WriteLine(lineStr);

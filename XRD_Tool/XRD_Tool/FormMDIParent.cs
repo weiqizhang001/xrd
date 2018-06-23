@@ -164,7 +164,7 @@ namespace XRD_Tool
             {
                 myUart.Pack_Debug_out(null, "[Parent] Menu Setup");
 
-                if (!HaveOpened(this, "FormChildDevParam"))
+                if (!HaveOpened(this, "FormChildDeviceParam"))
                 {
                     //return;
                 }
@@ -214,7 +214,7 @@ namespace XRD_Tool
             {
                 myUart.Pack_Debug_out(null, "[Parent] Menu DevCtrl");
 
-                if (!HaveOpened(this, "FormChildDevCtrl"))
+                if (!HaveOpened(this, "FormChildDeviceCtrl"))
                 {
                     //return;
                 }
@@ -489,7 +489,7 @@ namespace XRD_Tool
                         //return;
                     }
 
-                    myFormCurveFitting = new FormChildCurveFitting();
+                    myFormCurveFitting = new FormChildCurveFitting(this);
                     myFormCurveFitting.MdiParent = this;
                     myFormCurveFitting.WindowState = FormWindowState.Maximized;
                     myFormCurveFitting.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

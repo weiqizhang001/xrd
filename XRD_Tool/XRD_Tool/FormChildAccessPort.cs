@@ -127,7 +127,7 @@ namespace XRD_Tool
 
         private void button_ClearScreen_Click(object sender, EventArgs e)
         {
-            textBox_Send.Text = "";
+            //textBox_Send.Text = "";
             richTextBoxUartRecv.Text = "";
         }
 
